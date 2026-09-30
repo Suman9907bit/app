@@ -7,7 +7,7 @@
 
 <title>Jana Online Service</title>
 <!-- =====================================================
-     PWA CONFIG
+     JANA ONLINE SERVICE - PWA CONFIG
 ===================================================== -->
 
 <meta name="theme-color" content="#0097a7">
@@ -17,8 +17,13 @@
   content="Jana Online Service - আপনার প্রয়োজনীয় Online ও Digital Services এক জায়গায়।"
 >
 
-<meta name="mobile-web-app-capable" content="yes">
+<!-- Android / Chrome -->
+<meta
+  name="mobile-web-app-capable"
+  content="yes"
+>
 
+<!-- iPhone / iPad -->
 <meta
   name="apple-mobile-web-app-capable"
   content="yes"
@@ -31,17 +36,20 @@
 
 <meta
   name="apple-mobile-web-app-title"
-  content="Jana Online Service"
+  content="JANA ONLINE SERVICE"
 >
 
+<!-- PWA Manifest -->
 <link
   rel="manifest"
-  href="manifest.json"
+  href="./manifest.json"
 >
 
+<!-- Apple Icon -->
 <link
   rel="apple-touch-icon"
-  href="icons/icon-192.png"
+  sizes="180x180"
+  href="./icons/icon-180.png"
 >
   
 <style>
@@ -8913,6 +8921,11 @@ window.addEventListener("load", function () {
     }, 2000);
 
 });
+
+
+
 </script>
+
+
 </body>
 </html>
