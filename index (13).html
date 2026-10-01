@@ -1,0 +1,8931 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Jana Online Service</title>
+<!-- =====================================================
+     JANA ONLINE SERVICE - PWA CONFIG
+===================================================== -->
+
+<meta name="theme-color" content="#0097a7">
+
+<meta
+  name="description"
+  content="Jana Online Service - আপনার প্রয়োজনীয় Online ও Digital Services এক জায়গায়।"
+>
+
+<!-- Android / Chrome -->
+<meta
+  name="mobile-web-app-capable"
+  content="yes"
+>
+
+<!-- iPhone / iPad -->
+<meta
+  name="apple-mobile-web-app-capable"
+  content="yes"
+>
+
+<meta
+  name="apple-mobile-web-app-status-bar-style"
+  content="default"
+>
+
+<meta
+  name="apple-mobile-web-app-title"
+  content="JANA ONLINE SERVICE"
+>
+
+<!-- PWA Manifest -->
+<link
+  rel="manifest"
+  href="./manifest.json"
+>
+
+<!-- Apple Icon -->
+<link
+  rel="apple-touch-icon"
+  sizes="180x180"
+  href="./icons/icon-180.png"
+>
+  
+<style>
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+:root{
+  --primary:#075985;
+  --primary2:#0ea5e9;
+  --dark:#082f49;
+  --success:#16a34a;
+  --danger:#dc2626;
+  --warning:#d97706;
+  --light:#f0f9ff;
+  --white:#fff;
+  --border:#dbeafe;
+  --shadow:0 12px 35px rgba(2,48,71,.15);
+}
+
+body{
+  font-family:Arial,"Noto Sans Bengali",sans-serif;
+  background:#f1f5f9;
+  color:#172033;
+  min-height:100vh;
+}
+
+button,input,select,textarea{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+.hidden{
+  display:none!important;
+}
+
+
+/* =====================================================
+   LANDING
+===================================================== */
+
+#landing{
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  background:
+    linear-gradient(90deg,rgba(2,30,50,.20),rgba(2,30,50,.5)),
+    url("https://mir-s3-cdn-cf.behance.net/project_modules/source/879df8105642271.5f7db84be8463.gif")
+    center/cover fixed;width:100%;
+}
+
+.hero{
+  color:white;
+  padding:60px;
+  display:flex;
+  align-items:center;
+}
+
+.hero-content{
+  max-width:650px;
+}
+
+.logo-title{
+  font-size:48px;
+  font-weight:900;
+  margin-bottom:15px;
+  line-height:1.1;
+}
+
+.logo-title span{
+  color:yellow;
+}
+
+.hero-subtitle{
+  font-size:22px;
+  margin-bottom:25px;
+  line-height:1.6;
+}
+
+.hero-info{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+  margin-top:30px;
+}
+
+.info-box{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.2);
+  backdrop-filter:blur(8px);
+  padding:18px;
+  border-radius:15px;
+}
+
+.info-box strong{
+  display:block;
+  font-size:18px;
+  margin-bottom:7px;
+}
+
+.info-box span{
+  font-size:14px;
+  opacity:.9;
+}
+
+
+/* =====================================================
+   AUTH
+===================================================== */
+
+.auth-side{
+  background:rgba(255,255,255,.96);
+  padding:30px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.auth-wrap{
+  width:100%;
+  max-width:470px;
+}
+
+.auth-card{
+  background:#fff;
+  border-radius:24px;
+  box-shadow:var(--shadow);
+  padding:30px;
+}
+
+.auth-title{
+  color:var(--dark);
+  font-size:30px;
+  font-weight:800;
+  margin-bottom:7px;
+}
+
+.auth-desc{
+  color:#64748b;
+  margin-bottom:25px;
+  line-height:1.5;
+}
+
+.form-group{
+  margin-bottom:15px;
+}
+
+.form-group label{
+  display:block;
+  margin-bottom:7px;
+  font-weight:700;
+  font-size:14px;
+  color:#334155;
+}
+
+.form-control{
+  width:100%;
+  padding:13px 14px;
+  border:1px solid #cbd5e1;
+  border-radius:11px;
+  outline:none;
+  transition:.2s;
+  background:#fff;
+}
+
+.form-control:focus{
+  border-color:var(--primary2);
+  box-shadow:0 0 0 3px rgba(14,165,233,.12);
+}
+
+.btn{
+  border:0;
+  border-radius:11px;
+  padding:12px 17px;
+  font-weight:700;
+  transition:.2s;
+}
+
+.btn:hover{
+  transform:translateY(-1px);
+}
+
+.btn-primary{
+  color:#fff;
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+}
+
+.btn-success{
+  background:var(--success);
+  color:#fff;
+}
+
+.btn-danger{
+  background:var(--danger);
+  color:#fff;
+}
+
+.btn-warning{
+  background:var(--warning);
+  color:#fff;
+}
+
+.btn-light{
+  background:#e0f2fe;
+  color:#075985;
+}
+
+.btn-dark{
+  background:#0f172a;
+  color:#fff;
+}
+
+.btn-block{
+  width:100%;
+}
+
+.login-btn{
+  margin-top:8px;
+  padding:14px;
+}
+
+.registration-open{
+  margin-top:18px;
+  background:#f0f9ff;
+  border:1px dashed #38bdf8;
+  border-radius:15px;
+  padding:18px;
+  text-align:center;
+}
+
+.registration-open p{
+  color:#64748b;
+  font-size:14px;
+  margin-bottom:10px;
+}
+
+
+/* =====================================================
+   REGISTRATION
+===================================================== */
+
+.register-card{
+  display:none;
+  background:#fff;
+  border-radius:24px;
+  box-shadow:var(--shadow);
+  padding:28px;
+  max-height:92vh;
+  overflow:auto;
+}
+
+.register-card.active{
+  display:block;
+}
+
+.register-title{
+  font-size:27px;
+  font-weight:800;
+  color:var(--dark);
+  margin-bottom:6px;
+}
+
+.register-desc{
+  color:#64748b;
+  margin-bottom:20px;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:13px;
+}
+
+.full{
+  grid-column:1/-1;
+}
+
+.form-actions{
+  display:flex;
+  gap:10px;
+  margin-top:15px;
+}
+
+.form-actions button{
+  flex:1;
+}
+
+
+/* =====================================================
+   DASHBOARD
+===================================================== */
+
+.dashboard{
+  min-height:100vh;
+  background:#f8fafc;
+}
+
+.topbar{
+  min-height:70px;
+  background:#0097a7;
+  border-bottom:1px solid #e2e8f0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 25px;
+  position:sticky;
+  top:0;
+  z-index:20;
+}
+
+.brand{
+  font-size:24px;
+  font-weight:900;
+  color:white;
+}
+
+.brand span{
+  color:yellow;
+}
+
+.top-actions{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.profile-btn{
+  width:43px;
+  height:43px;
+  border-radius:50%;
+  border:0;
+  background:#e0f2fe;
+  font-size:21px;
+}
+
+
+
+.user-banner{
+  min-height:auto;
+  padding:45px 30px;
+  color:white;
+  display:flex;
+  align-items:center;
+  background:
+    linear-gradient(90deg,rgba(2,47,75,.60),rgba(2,47,75,.02)),
+    url("https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlH7rxZO2N9clhbi9PBaTTEbg-V9U5viqbMpeIwE0Wd6obzEM5ThJ35WAemaJmQv6o9Lh21K9A20DM6iUzDWJaHMixLN-NWdRJGgw5nyWPTVHCU5OXPrqDSLdLywlSP4w4hEUar7ue0doNY=s680-w680-h510-rw")
+    center/cover;
+}
+
+.banner-inner{
+  max-width:1100px;
+  width:100%;
+  margin:auto;
+}
+
+.banner-inner h1{
+  font-size:38px;
+  margin-bottom:10px;
+}
+
+.banner-inner p{
+  font-size:17px;
+  opacity:.95;
+}
+
+
+
+/* =====================================================
+   NOTICE BAR
+===================================================== */
+
+.notice-bar{
+  width:100%;
+  height:48px;
+  display:flex;
+  align-items:center;
+  background:linear-gradient(90deg,#00695c,#0097a7,#00695c);
+  color:#fff;
+  overflow:hidden;
+  box-shadow:0 3px 10px rgba(0,0,0,.15);
+}
+
+.notice-label{
+  height:100%;
+  min-width:120px;
+  padding:0 18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  background:#0097a7;
+  font-weight:700;
+  font-size:14px;
+  position:relative;
+  z-index:5;
+  box-shadow:5px 0 10px rgba(0,0,0,.15);
+}
+
+.notice-content{
+  flex:1;
+  overflow:hidden;
+  white-space:nowrap;
+}
+
+.notice-track{
+  display:inline-flex;
+  align-items:center;
+  gap:55px;
+  padding-left:30px;
+  animation:noticeMove 28s linear infinite;
+}
+
+.notice-item{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:14px;
+  font-weight:500;
+}
+
+.notice-item b{
+  background:#ffca28;
+  color:#263238;
+  padding:3px 8px;
+  border-radius:12px;
+  font-size:10px;
+  font-weight:800;
+}
+
+@keyframes noticeMove{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-50%)}
+}
+
+.notice-bar:hover .notice-track{
+  animation-play-state:paused;
+}
+
+
+/* =====================================================
+   ADMIN
+===================================================== */
+
+.admin-page{
+  min-height:100vh;
+  background:#f8fafc;
+}
+
+.admin-container{
+  max-width:1400px;
+  margin:auto;
+  padding:25px;
+}
+
+.admin-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:25px;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.admin-header h1{
+  color:#0f172a;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  margin-bottom:25px;
+}
+
+.stat-card{
+  background:#fff;
+  border-radius:17px;
+  padding:20px;
+  border:1px solid #e2e8f0;
+  box-shadow:0 4px 15px rgba(15,23,42,.05);
+}
+
+.stat-card small{
+  color:#64748b;
+  display:block;
+  margin-bottom:8px;
+}
+
+.stat-card strong{
+  font-size:30px;
+  color:#0f172a;
+}
+
+.admin-section{
+  background:#fff;
+  border-radius:18px;
+  padding:22px;
+  margin-bottom:22px;
+  border:1px solid #e2e8f0;
+}
+
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin-bottom:18px;
+  flex-wrap:wrap;
+}
+
+.table-wrap{
+  overflow-x:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:900px;
+}
+
+th,td{
+  padding:12px;
+  border-bottom:1px solid #e2e8f0;
+  text-align:left;
+  font-size:14px;
+}
+
+th{
+  background:#f8fafc;
+  color:#334155;
+}
+
+.status{
+  display:inline-block;
+  padding:5px 9px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:800;
+}
+
+.status.active{
+  color:#166534;
+  background:#dcfce7;
+}
+
+.status.inactive{
+  color:#991b1b;
+  background:#fee2e2;
+}
+
+.action-buttons{
+  display:flex;
+  gap:5px;
+  flex-wrap:wrap;
+}
+
+.action-buttons .btn{
+  padding:7px 10px;
+  font-size:12px;
+}
+
+.service-admin-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:15px;
+}
+
+.admin-service{
+  background:#f8fafc;
+  border:1px solid #e2e8f0;
+  padding:17px;
+  border-radius:15px;
+}
+
+.admin-service-icon{
+  font-size:30px;
+  margin-bottom:8px;
+}
+
+.admin-service h3{
+  margin-bottom:5px;
+}
+
+.admin-service p{
+  color:#64748b;
+  font-size:14px;
+  margin-bottom:10px;
+}
+
+
+/* =====================================================
+   MODALS
+===================================================== */
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(15,23,42,.62);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:100;
+  padding:15px;
+}
+
+.modal.active{
+  display:flex;
+}
+
+.modal-box{
+  background:#fff;
+  width:100%;
+  max-width:650px;
+  max-height:90vh;
+  overflow:auto;
+  border-radius:20px;
+  box-shadow:0 25px 70px rgba(0,0,0,.25);
+}
+
+.modal-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:20px;
+  border-bottom:1px solid #e2e8f0;
+}
+
+.modal-head h2{
+  color:#0f172a;
+}
+
+.close-btn{
+  border:0;
+  background:#fee2e2;
+  color:#991b1b;
+  width:35px;
+  height:35px;
+  border-radius:50%;
+  font-size:21px;
+}
+
+.modal-body{
+  padding:20px;
+}
+
+.profile-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.profile-item{
+  background:#f8fafc;
+  border-radius:10px;
+  padding:12px;
+}
+
+.profile-item small{
+  color:#64748b;
+  display:block;
+  margin-bottom:4px;
+}
+
+.profile-item strong{
+  word-break:break-word;
+}
+
+.success-box{
+  text-align:center;
+  padding:15px 20px 25px;
+}
+
+.success-icon{
+  width:75px;
+  height:75px;
+  margin:0 auto 15px;
+  border-radius:50%;
+  background:#dcfce7;
+  color:#16a34a;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:40px;
+}
+
+.credential-box{
+  background:#f8fafc;
+  border:1px solid #e2e8f0;
+  padding:15px;
+  border-radius:12px;
+  text-align:left;
+  margin-top:15px;
+}
+
+.credential-row{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  padding:9px 0;
+  border-bottom:1px solid #e2e8f0;
+}
+
+.credential-row:last-child{
+  border-bottom:0;
+}
+
+.credential-row strong{
+  color:#075985;
+  word-break:break-all;
+}
+
+.modal-footer{
+  padding:0 20px 20px;
+  display:flex;
+  gap:10px;
+}
+
+.modal-footer .btn{
+  flex:1;
+}
+
+
+/* =====================================================
+   SERVICE VIEWER
+===================================================== */
+
+.viewer{
+  position:fixed;
+  inset:0;
+  background:#000;
+  z-index:1000;
+  display:none;
+  flex-direction:column;
+}
+
+.viewer.active{
+  display:flex;
+}
+
+.viewer-bar{
+  height:55px;
+  background:#0f172a;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 15px;
+}
+
+.viewer-title{
+  font-weight:700;
+}
+
+.viewer-close{
+  border:0;
+  background:#dc2626;
+  color:#fff;
+  width:40px;
+  height:40px;
+  border-radius:8px;
+  font-size:25px;
+}
+
+#serviceFrame{
+  flex:1;
+  width:100%;
+  border:0;
+  background:#fff;
+}
+
+
+/* =====================================================
+   TOAST / LOADER
+===================================================== */
+
+.toast{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  min-width:280px;
+  max-width:420px;
+  background:#0f172a;
+  color:#fff;
+  padding:14px 17px;
+  border-radius:12px;
+  box-shadow:0 10px 35px rgba(0,0,0,.25);
+  transform:translateY(120px);
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
+  z-index:2000;
+}
+
+.toast.show{
+  transform:translateY(0);
+  opacity:1;
+}
+
+.toast.success{
+  background:#166534;
+}
+
+.toast.error{
+  background:#991b1b;
+}
+
+.loader{
+  position:fixed;
+  inset:0;
+  background:rgba(255,255,255,.75);
+  backdrop-filter:blur(3px);
+  z-index:3000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+}
+
+.loader.active{
+  display:flex;
+}
+
+.loader-box{
+  background:#fff;
+  padding:25px 35px;
+  border-radius:15px;
+  box-shadow:var(--shadow);
+  text-align:center;
+}
+
+.spinner{
+  width:40px;
+  height:40px;
+  border:4px solid #dbeafe;
+  border-top-color:#0284c7;
+  border-radius:50%;
+  animation:spin .8s linear infinite;
+  margin:0 auto 12px;
+}
+
+@keyframes spin{
+  to{transform:rotate(360deg)}
+}
+
+
+/* =====================================================
+   COMMON ONLINE SERVICES
+===================================================== */
+
+.common-service-section{
+  width:100%;
+  padding:30px 18px 40px;
+  background:
+    radial-gradient(circle at top left,rgba(0,151,167,.08),transparent 35%),
+    #f4f8fb;
+}
+
+.common-service-container{
+  max-width:1250px;
+  margin:auto;
+}
+
+.common-service-header{
+  text-align:center;
+  margin-bottom:25px;
+}
+
+.common-service-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:7px 14px;
+  border-radius:30px;
+  background:#e5f8fa;
+  color:#007987;
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:9px;
+}
+
+.common-service-header h2{
+  margin:0 0 7px;
+  font-size:clamp(24px,4vw,36px);
+  color:#12384a;
+}
+
+.common-service-header h2 span{
+  color:#0097a7;
+}
+
+.common-service-header p{
+  max-width:680px;
+  margin:auto;
+  color:#667786;
+  font-size:14px;
+  line-height:1.6;
+}
+
+.common-service-toolbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  margin-bottom:20px;
+  flex-wrap:wrap;
+}
+
+.common-service-count{
+  color:#587080;
+  font-size:14px;
+  font-weight:600;
+}
+
+.common-search-box{
+  position:relative;
+  width:min(100%,320px);
+}
+
+.common-search-box span{
+  position:absolute;
+  left:14px;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:16px;
+}
+
+.common-search-box input{
+  width:100%;
+  padding:12px 14px 12px 40px;
+  border:1px solid #d8e5eb;
+  border-radius:12px;
+  outline:none;
+  background:#fff;
+  color:#183142;
+  font-size:14px;
+  box-shadow:0 4px 15px rgba(20,60,80,.05);
+}
+
+.common-search-box input:focus{
+  border-color:#00a0b0;
+  box-shadow:0 0 0 4px rgba(0,160,176,.10);
+}
+
+.common-service-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:17px;
+}
+
+.common-service-card{
+  position:relative;
+  background:#fff;
+  border:1px solid #e2edf1;
+  border-radius:17px;
+  padding:19px;
+  min-height:145px;
+  cursor:pointer;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  box-shadow:0 7px 25px rgba(23,72,91,.07);
+  transition:.25s ease;
+}
+
+.common-service-card::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:4px;
+  background:linear-gradient(90deg,#008b9a,#00b8c8);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:.3s;
+}
+
+.common-service-card:hover{
+  transform:translateY(-6px);
+  border-color:#b9e4e9;
+  box-shadow:0 16px 35px rgba(0,111,130,.13);
+}
+
+.common-service-card:hover::before{
+  transform:scaleX(1);
+}
+
+.common-service-icon{
+  width:50px;
+  height:50px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:14px;
+  background:linear-gradient(135deg,#e3f9fb,#c9f0f3);
+  color:#007d8b;
+  font-size:24px;
+  margin-bottom:13px;
+  transition:.25s;
+}
+
+.common-service-card:hover .common-service-icon{
+  transform:scale(1.08) rotate(-3deg);
+  background:linear-gradient(135deg,#008b9a,#00aebd);
+  color:#fff;
+}
+
+.common-service-card h3{
+  font-size:15px;
+  color:#173d4d;
+  margin-bottom:5px;
+  line-height:1.3;
+}
+
+.common-service-card p{
+  color:#718390;
+  font-size:12px;
+  line-height:1.4;
+}
+
+.common-service-card-footer{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:14px;
+  color:#0093a2;
+  font-size:12px;
+  font-weight:700;
+}
+
+.common-service-arrow{
+  width:27px;
+  height:27px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#edf9fa;
+  transition:.25s;
+}
+
+.common-service-card:hover .common-service-arrow{
+  background:#0097a7;
+  color:#fff;
+  transform:translateX(3px);
+}
+
+.common-service-no-result{
+  display:none;
+  text-align:center;
+  padding:40px 20px;
+  background:#fff;
+  border-radius:15px;
+  color:#718390;
+}
+
+.common-service-no-result div{
+  font-size:35px;
+  margin-bottom:10px;
+}
+
+
+/* =====================================================
+   COMMON SERVICE MODAL
+===================================================== */
+
+.common-service-modal-overlay{
+  position:fixed;
+  inset:0;
+  z-index:10000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:15px;
+  background:rgba(8,28,39,.68);
+  backdrop-filter:blur(5px);
+}
+
+.common-service-modal-overlay.active{
+  display:flex;
+}
+
+.common-service-modal{
+  width:100%;
+  max-width:760px;
+  max-height:90vh;
+  overflow:hidden;
+  background:#fff;
+  border-radius:20px;
+  box-shadow:0 25px 70px rgba(0,0,0,.30);
+}
+
+.common-modal-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  padding:19px 21px;
+  color:#fff;
+  background:linear-gradient(135deg,#007d8b,#00a5b5);
+}
+
+.common-modal-title-area{
+  display:flex;
+  align-items:center;
+  gap:13px;
+}
+
+.common-modal-icon{
+  width:47px;
+  height:47px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:13px;
+  background:rgba(255,255,255,.17);
+  font-size:22px;
+}
+
+.common-modal-header h3{
+  margin:0 0 3px;
+  font-size:18px;
+}
+
+.common-modal-header p{
+  margin:0;
+  font-size:12px;
+  opacity:.85;
+}
+
+.common-modal-close{
+  width:38px;
+  height:38px;
+  border:0;
+  border-radius:50%;
+  background:rgba(255,255,255,.14);
+  color:#fff;
+  font-size:20px;
+  cursor:pointer;
+}
+
+.common-modal-body{
+  padding:20px;
+  max-height:55vh;
+  overflow-y:auto;
+}
+
+.common-modal-label{
+  color:#526875;
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:12px;
+}
+
+.common-service-links{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+
+.common-service-link{
+  display:block;
+  text-decoration:none;
+  padding:15px;
+  border:1px solid #e2edf1;
+  border-radius:13px;
+  background:#f9fcfd;
+  transition:.22s;
+}
+
+.common-service-link:hover{
+  transform:translateY(-3px);
+  background:#fff;
+  border-color:#9edbe1;
+  box-shadow:0 8px 20px rgba(0,130,145,.10);
+}
+
+.common-service-link strong{
+  display:block;
+  color:#007f8d;
+  font-size:13px;
+  margin-bottom:5px;
+}
+
+.common-service-link span{
+  display:block;
+  color:#748591;
+  font-size:11px;
+  line-height:1.4;
+}
+
+.common-modal-footer{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:14px 19px;
+  border-top:1px solid #e8eef1;
+  background:#fbfdfe;
+  flex-wrap:wrap;
+}
+
+.common-contact-buttons{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.common-contact-buttons a{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  text-decoration:none;
+  padding:10px 14px;
+  border-radius:10px;
+  font-size:13px;
+  font-weight:700;
+}
+
+.common-call-button{
+  color:#007989;
+  background:#e5f7f9;
+}
+
+.common-whatsapp-button{
+  color:#fff;
+  background:#0097a7;
+}
+
+.common-modal-footer small{
+  color:#7b8c96;
+  font-size:11px;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:1050px){
+
+  .common-service-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+}
+
+@media(max-width:900px){
+
+  #landing{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    padding:35px 25px;
+    min-height:45vh;
+  }
+
+  .logo-title{
+    font-size:38px;
+  }
+
+  .auth-side{
+    padding:20px;
+  }
+
+  .stats{
+    grid-template-columns:1fr 1fr;
+  }
+
+}
+
+@media(max-width:700px){
+
+  .common-service-section{
+    padding:25px 12px 35px;
+  }
+
+  .common-service-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+  }
+
+  .common-service-card{
+    padding:15px;
+    min-height:140px;
+  }
+
+  .common-service-icon{
+    width:44px;
+    height:44px;
+    font-size:21px;
+  }
+
+  .common-service-card h3{
+    font-size:14px;
+  }
+
+  .common-service-card p{
+    font-size:11px;
+  }
+
+  .common-service-links{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:600px){
+
+  .hero-info{
+    grid-template-columns:1fr;
+  }
+
+  .hero-subtitle{
+    font-size:17px;
+  }
+
+  .logo-title{
+    font-size:32px;
+  }
+
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .full{
+    grid-column:auto;
+  }
+
+  .form-actions{
+    flex-direction:column;
+  }
+
+  .profile-grid{
+    grid-template-columns:1fr;
+  }
+
+  .stats{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .topbar{
+    padding:10px 12px;
+  }
+
+  .brand{
+    font-size:19px;
+  }
+
+  .user-banner{
+    padding:35px 20px;
+  }
+
+  .banner-inner h1{
+    font-size:28px;
+  }
+
+  .admin-container{
+    padding:15px;
+  }
+
+  .notice-bar{
+    height:44px;
+  }
+
+  .notice-label{
+    min-width:82px;
+    padding:0 10px;
+    font-size:11px;
+  }
+
+  .notice-item{
+    font-size:12px;
+  }
+
+  .notice-track{
+    gap:35px;
+    animation-duration:22s;
+  }
+
+}
+
+@media(max-width:420px){
+
+  .common-service-toolbar{
+    display:block;
+  }
+
+  .common-service-count{
+    margin-bottom:10px;
+  }
+
+  .common-search-box{
+    width:100%;
+  }
+
+  .common-service-grid{
+    gap:9px;
+  }
+
+  .common-service-card{
+    padding:13px;
+    min-height:138px;
+  }
+
+  .common-service-card h3{
+    font-size:13px;
+  }
+
+  .common-service-card p{
+    font-size:10.5px;
+  }
+
+  .common-service-links{
+    grid-template-columns:1fr;
+  }
+
+}
+
+
+
+
+/* =====================================================
+   PROFESSIONAL APP LOGIN
+===================================================== */
+
+.app-login-page {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 35px 20px;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(14,165,233,.20),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 90%,
+            rgba(7,89,133,.25),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #f0f9ff 0%,
+            #e0f2fe 45%,
+            #f8fafc 100%
+        );
+
+    box-sizing: border-box;
+}
+
+
+/* Background shapes */
+
+.login-bg-shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(2px);
+    pointer-events: none;
+}
+
+.shape-1 {
+    width: 280px;
+    height: 280px;
+    background: #0097a7);
+    top: -100px;
+    left: -80px;
+}
+
+.shape-2 {
+    width: 350px;
+    height: 350px;
+    background:#0097a7);
+    bottom: -160px;
+    right: -100px;
+}
+
+.shape-3 {
+    width: 150px;
+    height: 150px;
+    background: #0097a7);
+    top: 35%;
+    right: 15%;
+}
+
+
+/* Main wrapper */
+
+.login-app-wrapper {
+    width: 100%;
+    max-width: 1080px;
+
+    min-height: 650px;
+
+    display: grid;
+    grid-template-columns: 1fr 460px;
+
+    background: rgba(255,255,255,.88);
+
+    border: 1px solid rgba(255,255,255,.8);
+
+    border-radius: 30px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 25px 70px rgba(7,47,73,.16),
+        0 8px 25px rgba(7,47,73,.08);
+
+    backdrop-filter: blur(20px);
+
+    position: relative;
+    z-index: 2;
+}
+
+
+/* =====================================================
+   BRAND AREA
+===================================================== */
+
+.login-brand-area {
+    position: relative;
+
+    padding: 65px 55px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            145deg,
+            #075985 0%,
+            #0369a1 45%,
+            #0284c7 100%
+        );
+
+    overflow: hidden;
+}
+
+
+.login-brand-area::before {
+    content: "";
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.06);
+
+    top: -170px;
+    right: -180px;
+}
+
+
+.login-brand-area::after {
+    content: "";
+
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.05);
+
+    bottom: -130px;
+    left: -100px;
+}
+
+
+.brand-logo-box {
+    position: relative;
+    z-index: 2;
+
+    margin-bottom: 25px;
+}
+
+
+.brand-logo {
+    width: 82px;
+    height: 82px;
+
+    border-radius: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 34px;
+
+    color: #075985;
+
+    background: white;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.18);
+}
+
+
+.brand-content {
+    position: relative;
+    z-index: 2;
+}
+
+
+.brand-content h1 {
+    margin: 0;
+
+    font-size: 34px;
+
+    font-weight: 800;
+
+    letter-spacing: -.5px;
+
+    line-height: 1.15;
+}
+
+
+.brand-subtitle {
+    margin: 10px 0 15px;
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    opacity: .92;
+}
+
+
+.brand-description {
+    max-width: 470px;
+
+    margin: 0;
+
+    line-height: 1.7;
+
+    font-size: 15px;
+
+    opacity: .86;
+}
+
+
+/* Features */
+
+.brand-features {
+    position: relative;
+    z-index: 2;
+
+    margin-top: 40px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 17px;
+}
+
+
+.brand-feature {
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+}
+
+
+.feature-icon {
+    width: 44px;
+    height: 44px;
+
+    border-radius: 13px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255,255,255,.14);
+
+    border: 1px solid rgba(255,255,255,.15);
+
+    font-size: 17px;
+}
+
+
+.brand-feature strong {
+    display: block;
+
+    font-size: 14px;
+}
+
+
+.brand-feature span {
+    display: block;
+
+    margin-top: 2px;
+
+    font-size: 12px;
+
+    opacity: .72;
+}
+
+
+/* =====================================================
+   LOGIN CARD AREA
+===================================================== */
+
+.login-card-area {
+    padding: 45px 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255,255,255,.96);
+
+    overflow-y: auto;
+}
+
+
+.professional-login-card {
+    width: 100%;
+    max-width: 390px;
+}
+
+
+.login-header {
+    text-align: center;
+
+    margin-bottom: 25px;
+}
+
+
+.login-header h2 {
+    margin: 0;
+
+    color: #082f49;
+
+    font-size: 28px;
+
+    font-weight: 800;
+}
+
+
+.login-header p {
+    margin: 7px 0 0;
+
+    color: #64748b;
+
+    font-size: 14px;
+}
+
+
+.mobile-logo {
+    display: none;
+}
+
+
+/* =====================================================
+   ACCOUNT TYPE
+===================================================== */
+
+.account-type-title {
+    margin-bottom: 10px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    color: #334155;
+}
+
+
+.login-type-buttons {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+
+    margin-bottom: 23px;
+}
+
+
+.login-type-btn {
+    border: 1.5px solid #e2e8f0;
+
+    background: #f8fafc;
+
+    min-height: 65px;
+
+    border-radius: 14px;
+
+    padding: 9px 12px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    text-align: left;
+
+    transition: .25s ease;
+
+    color: #64748b;
+}
+
+
+.login-type-btn > i {
+    width: 35px;
+    height: 35px;
+
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #e0f2fe;
+
+    color: #0284c7;
+
+    font-size: 15px;
+}
+
+
+.login-type-btn span {
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.login-type-btn strong {
+    font-size: 13px;
+
+    color: #334155;
+}
+
+
+.login-type-btn small {
+    font-size: 10px;
+
+    margin-top: 2px;
+
+    color: #94a3b8;
+}
+
+
+.login-type-btn:hover {
+    border-color: #38bdf8;
+
+    transform: translateY(-1px);
+}
+
+
+.login-type-btn.active {
+    border-color: #0284c7;
+
+    background: linear-gradient(
+        135deg,
+        #eff6ff,
+        #e0f2fe
+    );
+
+    box-shadow:
+        0 5px 15px rgba(2,132,199,.10);
+}
+
+
+.login-type-btn.active > i {
+    color: white;
+
+    background: linear-gradient(
+        135deg,
+        #075985,
+        #0ea5e9
+    );
+}
+
+
+/* =====================================================
+   INPUT
+===================================================== */
+
+.modern-input-group {
+    margin-bottom: 17px;
+}
+
+
+.modern-input-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    color: #334155;
+}
+
+
+.modern-input-group label i {
+    margin-right: 5px;
+
+    color: #0284c7;
+}
+
+
+.modern-input-group label small {
+    color: #94a3b8;
+
+    font-weight: 500;
+}
+
+
+.modern-input {
+    width: 100%;
+
+    min-height: 49px;
+
+    display: flex;
+
+    align-items: center;
+
+    border: 1.5px solid #e2e8f0;
+
+    border-radius: 13px;
+
+    background: #f8fafc;
+
+    transition: .25s ease;
+
+    box-sizing: border-box;
+}
+
+
+.modern-input:focus-within {
+    border-color: #0ea5e9;
+
+    background: white;
+
+    box-shadow:
+        0 0 0 4px rgba(14,165,233,.10);
+}
+
+
+.modern-input > i {
+    width: 44px;
+
+    text-align: center;
+
+    color: #94a3b8;
+
+    font-size: 14px;
+}
+
+
+.modern-input input {
+    flex: 1;
+
+    min-width: 0;
+
+    border: 0;
+
+    outline: 0;
+
+    background: transparent;
+
+    height: 47px;
+
+    padding: 0 5px;
+
+    font-size: 13px;
+
+    color: #0f172a;
+}
+
+
+.modern-input input::placeholder {
+    color: #94a3b8;
+}
+
+
+.password-toggle {
+    width: 44px;
+
+    height: 45px;
+
+    border: 0;
+
+    background: transparent;
+
+    color: #94a3b8;
+
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+
+.password-toggle:hover {
+    color: #0284c7;
+}
+
+
+/* =====================================================
+   LOGIN OPTIONS
+===================================================== */
+
+.login-options {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin: 3px 0 20px;
+
+    font-size: 11px;
+}
+
+
+.remember-me {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: #64748b;
+
+    cursor: pointer;
+}
+
+
+.remember-me input {
+    display: none;
+}
+
+
+.custom-checkbox {
+    width: 16px;
+    height: 16px;
+
+    border: 1.5px solid #cbd5e1;
+
+    border-radius: 5px;
+
+    background: white;
+
+    position: relative;
+}
+
+
+.remember-me input:checked + .custom-checkbox {
+    background: #0284c7;
+
+    border-color: #0284c7;
+}
+
+
+.remember-me input:checked + .custom-checkbox::after {
+    content: "✓";
+
+    color: white;
+
+    font-size: 11px;
+
+    position: absolute;
+
+    left: 3px;
+
+    top: -1px;
+}
+
+
+.secure-login {
+    color: #16a34a;
+
+    font-weight: 600;
+}
+
+
+.secure-login i {
+    margin-right: 3px;
+}
+
+
+/* =====================================================
+   LOGIN BUTTON
+===================================================== */
+
+.professional-login-btn {
+    width: 100%;
+
+    height: 52px;
+
+    border: 0;
+
+    border-radius: 14px;
+
+    cursor: pointer;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    letter-spacing: .3px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #075985,
+            #0284c7,
+            #0ea5e9
+        );
+
+    box-shadow:
+        0 10px 25px rgba(2,132,199,.24);
+
+    transition: .25s ease;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+}
+
+
+.professional-login-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 14px 30px rgba(2,132,199,.30);
+}
+
+
+.professional-login-btn:active {
+    transform: translateY(0);
+}
+
+
+/* =====================================================
+   REGISTRATION
+===================================================== */
+
+.registration-area {
+    margin-top: 20px;
+
+    text-align: center;
+}
+
+
+.registration-line {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: #94a3b8;
+
+    font-size: 11px;
+
+    margin-bottom: 10px;
+}
+
+
+.registration-line::before,
+.registration-line::after {
+    content: "";
+
+    height: 1px;
+
+    flex: 1;
+
+    background: #e2e8f0;
+}
+
+
+.registration-btn {
+    width: 100%;
+
+    min-height: 46px;
+
+    border: 1.5px solid #bae6fd;
+
+    border-radius: 12px;
+
+    background: #f0f9ff;
+
+    color: #0369a1;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: .25s ease;
+}
+
+
+.registration-btn i:first-child {
+    margin-right: 6px;
+}
+
+
+.registration-btn i:last-child {
+    margin-left: 7px;
+
+    font-size: 11px;
+}
+
+
+.registration-btn:hover {
+    background: #e0f2fe;
+
+    border-color: #7dd3fc;
+
+    transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   REGISTRATION CARD
+===================================================== */
+
+#registerCard {
+    max-height: 570px;
+
+    overflow-y: auto;
+
+    padding-right: 5px;
+}
+
+
+#registerCard::-webkit-scrollbar {
+    width: 5px;
+}
+
+
+#registerCard::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+
+    border-radius: 20px;
+}
+
+
+.register-top {
+    margin-bottom: 22px;
+}
+
+
+.back-login-btn {
+    border: 0;
+
+    background: transparent;
+
+    color: #0284c7;
+
+    cursor: pointer;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    padding: 0;
+
+    margin-bottom: 17px;
+}
+
+
+.register-top h2 {
+    margin: 0;
+
+    color: #082f49;
+
+    font-size: 25px;
+}
+
+
+.register-top p {
+    margin: 5px 0 0;
+
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.login-footer {
+    margin-top: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    color: #94a3b8;
+
+    font-size: 10px;
+
+    text-align: center;
+}
+
+
+.footer-dot {
+    color: #cbd5e1;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .login-app-wrapper {
+        max-width: 500px;
+
+        min-height: auto;
+
+        grid-template-columns: 1fr;
+
+        border-radius: 25px;
+    }
+
+
+    .login-brand-area {
+        padding: 28px 25px;
+
+        text-align: center;
+
+        align-items: center;
+    }
+
+
+    .brand-logo {
+        width: 68px;
+        height: 68px;
+
+        border-radius: 20px;
+
+        font-size: 28px;
+
+        margin: auto;
+    }
+
+
+    .brand-content h1 {
+        font-size: 25px;
+    }
+
+
+    .brand-subtitle {
+        font-size: 15px;
+    }
+
+
+    .brand-description {
+        font-size: 12px;
+    }
+
+
+    .brand-features {
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+
+        width: 100%;
+
+        margin-top: 25px;
+
+        gap: 8px;
+    }
+
+
+    .brand-feature {
+        flex-direction: column;
+
+        text-align: center;
+
+        gap: 7px;
+    }
+
+
+    .feature-icon {
+        width: 38px;
+        height: 38px;
+    }
+
+
+    .brand-feature strong {
+        font-size: 11px;
+    }
+
+
+    .brand-feature span {
+        font-size: 9px;
+    }
+
+
+    .login-card-area {
+        padding: 30px 25px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .app-login-page {
+        padding: 0;
+
+        align-items: stretch;
+    }
+
+
+    .login-app-wrapper {
+        min-height: 100vh;
+
+        border-radius: 0;
+
+        border: 0;
+
+        box-shadow: none;
+    }
+
+
+    .login-brand-area {
+        padding: 30px 20px 25px;
+    }
+
+
+    .brand-content h1 {
+        font-size: 22px;
+    }
+
+
+    .brand-description {
+        display: none;
+    }
+
+
+    .brand-features {
+        margin-top: 20px;
+    }
+
+
+    .login-card-area {
+        padding: 28px 20px 25px;
+
+        align-items: flex-start;
+    }
+
+
+    .login-header {
+        margin-bottom: 20px;
+    }
+
+
+    .login-header h2 {
+        font-size: 24px;
+    }
+
+
+    .professional-login-card {
+        max-width: 100%;
+    }
+
+}
+
+
+@media (max-width: 420px) {
+
+    .login-type-buttons {
+        gap: 7px;
+    }
+
+
+    .login-type-btn {
+        padding: 8px;
+
+        min-height: 60px;
+    }
+
+
+    .login-type-btn > i {
+        width: 32px;
+        height: 32px;
+    }
+
+
+    .login-type-btn strong {
+        font-size: 12px;
+    }
+
+
+    .login-type-btn small {
+        font-size: 9px;
+    }
+
+
+    .login-card-area {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+
+    .login-footer {
+        flex-direction: column;
+
+        gap: 3px;
+    }
+
+
+    .footer-dot {
+        display: none;
+    }
+
+}
+
+
+
+.service-grid{
+  max-width:1250px;
+  margin:0 auto;
+  padding:30px 18px 40px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:17px;
+}
+
+.service-card{
+  background:#fff;
+  border:1px solid #e2e8f0;
+  border-radius:17px;
+  padding:20px;
+  box-shadow:0 7px 25px rgba(23,72,91,.07);
+}
+
+.service-icon{
+  width:50px;
+  height:50px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#e0f7fa;
+  border-radius:14px;
+  font-size:25px;
+  margin-bottom:12px;
+}
+
+.service-card h3{
+  margin-bottom:7px;
+  color:#173d4d;
+}
+
+.service-card p{
+  color:#718390;
+  font-size:13px;
+  min-height:40px;
+  margin-bottom:14px;
+}
+
+.empty-box{
+  background:#fff;
+  padding:25px;
+  border-radius:15px;
+  text-align:center;
+  color:#64748b;
+  grid-column:1/-1;
+}
+
+@media(max-width:1050px){
+  .service-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+}
+
+@media(max-width:700px){
+  .service-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    padding:20px 12px 30px;
+  }
+}
+
+@media(max-width:420px){
+  .service-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:
+    "Segoe UI",
+    "Noto Sans Bengali",
+    Arial,
+    sans-serif;
+
+    background:#f2f7f8;
+    min-height:100vh;
+}
+
+
+/* =====================================================
+   DEMO PAGE
+===================================================== */
+
+.demo-page{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+}
+
+.open-btn{
+
+    border:0;
+
+    padding:14px 25px;
+
+    border-radius:14px;
+
+    background:
+    linear-gradient(135deg,#0097a7,#006b78);
+
+    color:#fff;
+
+    font-size:16px;
+    font-weight:700;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 10px 25px rgba(0,151,167,.25);
+
+    transition:.2s;
+}
+
+.open-btn:hover{
+    transform:translateY(-2px);
+}
+
+.open-btn:active{
+    transform:scale(.96);
+}
+
+
+/* =====================================================
+   POPUP
+===================================================== */
+
+.jos-popup{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:999999;
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+}
+
+.jos-popup.active{
+    display:flex;
+}
+
+
+/* =====================================================
+   OVERLAY
+===================================================== */
+
+.jos-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    rgba(3,18,28,.70);
+
+    backdrop-filter:blur(7px);
+    -webkit-backdrop-filter:blur(7px);
+
+    animation:fadeIn .25s ease;
+}
+
+
+/* =====================================================
+   POPUP CARD
+===================================================== */
+
+.jos-card{
+
+    position:relative;
+
+    z-index:2;
+
+    width:min(94%,480px);
+
+    max-height:90vh;
+
+    overflow-y:auto;
+
+    background:#fff;
+
+    border-radius:28px;
+
+    box-shadow:
+    0 30px 80px rgba(0,0,0,.30);
+
+    animation:
+    popupIn .35s cubic-bezier(.22,1,.36,1);
+}
+
+
+/* =====================================================
+   MOBILE HANDLE
+===================================================== */
+
+.jos-handle{
+
+    display:none;
+
+    width:45px;
+    height:5px;
+
+    margin:10px auto 3px;
+
+    border-radius:20px;
+
+    background:#d5dde1;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.jos-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:13px;
+
+    padding:20px;
+
+    border-bottom:1px solid #edf1f3;
+}
+
+
+/* LOGO */
+
+.jos-logo{
+
+    width:52px;
+    height:52px;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:16px;
+
+    background:
+    linear-gradient(135deg,#00a5b5,#006c78);
+
+    color:white;
+
+    font-size:22px;
+
+    box-shadow:
+    0 8px 20px rgba(0,151,167,.25);
+}
+
+
+/* TITLE */
+
+.jos-title{
+
+    flex:1;
+
+    min-width:0;
+}
+
+.jos-title h3{
+
+    color:#172832;
+
+    font-size:18px;
+
+    font-weight:750;
+}
+
+.jos-title p{
+
+    margin-top:3px;
+
+    color:#7a878e;
+
+    font-size:12px;
+}
+
+
+/* CLOSE */
+
+.jos-close{
+
+    width:38px;
+    height:38px;
+
+    border:0;
+
+    border-radius:50%;
+
+    background:#f1f4f6;
+
+    color:#52616b;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    transition:.2s;
+}
+
+.jos-close:hover{
+
+    background:#e5eaed;
+
+    transform:rotate(90deg);
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+.jos-body{
+
+    padding:20px;
+}
+
+
+/* WELCOME */
+
+.jos-welcome h2{
+
+    color:#172832;
+
+    font-size:24px;
+
+    margin-bottom:6px;
+}
+
+.jos-welcome p{
+
+    color:#69767d;
+
+    font-size:14px;
+
+    line-height:1.6;
+}
+
+
+/* =====================================================
+   SERVICE LIST
+===================================================== */
+
+.jos-services{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+    margin-top:18px;
+}
+
+
+.jos-service{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:13px;
+
+    padding:12px;
+
+    border:1px solid #edf1f3;
+
+    border-radius:17px;
+
+    background:#fafcfd;
+
+    transition:.2s;
+}
+
+.jos-service:hover{
+
+    transform:translateY(-2px);
+
+    background:#fff;
+
+    box-shadow:
+    0 8px 20px rgba(0,0,0,.07);
+}
+
+
+/* SERVICE ICON */
+
+.service-icon{
+
+    width:44px;
+    height:44px;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:13px;
+
+    font-size:18px;
+}
+
+
+/* ICON COLORS */
+
+.blue{
+
+    color:#1476df;
+
+    background:#e8f2ff;
+}
+
+.green{
+
+    color:#079957;
+
+    background:#e7f9ef;
+}
+
+.orange{
+
+    color:#e88800;
+
+    background:#fff2df;
+}
+
+
+/* SERVICE TEXT */
+
+.service-text{
+    flex:1;
+}
+
+.service-text strong{
+
+    display:block;
+
+    color:#26363f;
+
+    font-size:14px;
+
+    margin-bottom:3px;
+}
+
+.service-text span{
+
+    display:block;
+
+    color:#7d898f;
+
+    font-size:11.5px;
+
+    line-height:1.4;
+}
+
+
+/* ARROW */
+
+.service-arrow{
+
+    color:#a8b1b6;
+
+    font-size:13px;
+}
+
+
+/* =====================================================
+   NOTICE
+===================================================== */
+
+.jos-notice{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:10px;
+
+    margin-top:16px;
+
+    padding:12px 13px;
+
+    border-radius:14px;
+
+    background:#eaf8fa;
+
+    color:#006c78;
+
+    font-size:12px;
+
+    line-height:1.5;
+}
+
+.jos-notice i{
+
+    margin-top:2px;
+
+    font-size:15px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.jos-footer{
+
+    display:flex;
+
+    gap:10px;
+
+    padding:15px 20px 20px;
+
+    border-top:1px solid #edf1f3;
+}
+
+
+/* BUTTON */
+
+.jos-btn{
+
+    flex:1;
+
+    min-height:48px;
+
+    border:0;
+
+    border-radius:14px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    text-decoration:none;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+
+/* CLOSE BUTTON */
+
+.jos-btn.close-btn{
+
+    background:#f1f4f6;
+
+    color:#53616a;
+}
+
+
+/* CONTACT BUTTON */
+
+.jos-btn.contact-btn{
+
+    color:#fff;
+
+    background:
+    linear-gradient(135deg,#0097a7,#006d79);
+
+    box-shadow:
+    0 7px 18px rgba(0,151,167,.22);
+}
+
+.jos-btn:hover{
+
+    transform:translateY(-2px);
+}
+
+.jos-btn:active{
+
+    transform:scale(.97);
+}
+
+
+/* =====================================================
+   ANIMATION
+===================================================== */
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+}
+
+
+@keyframes popupIn{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        translateY(25px)
+        scale(.96);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        translateY(0)
+        scale(1);
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:600px){
+
+    .jos-popup{
+
+        align-items:flex-end;
+
+        padding:0;
+    }
+
+    .jos-card{
+
+        width:100%;
+
+        max-width:100%;
+
+        max-height:92vh;
+
+        border-radius:
+        28px 28px 0 0;
+
+        animation:
+        mobilePopupIn
+        .35s cubic-bezier(.22,1,.36,1);
+    }
+
+    .jos-handle{
+        display:block;
+    }
+
+    .jos-header{
+
+        padding:
+        12px 17px 14px;
+    }
+
+    .jos-body{
+
+        padding:18px 17px;
+    }
+
+    .jos-footer{
+
+        padding:
+        13px 17px
+        calc(13px + env(safe-area-inset-bottom));
+
+        background:#fff;
+    }
+
+    .jos-title h3{
+        font-size:16px;
+    }
+
+    .jos-welcome h2{
+        font-size:21px;
+    }
+
+    .jos-welcome p{
+        font-size:13px;
+    }
+
+    .jos-close{
+
+        width:36px;
+        height:36px;
+    }
+
+    .jos-logo{
+
+        width:46px;
+        height:46px;
+
+        border-radius:14px;
+
+        font-size:19px;
+    }
+}
+
+
+@keyframes mobilePopupIn{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        translateY(100%);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        translateY(0);
+    }
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media(max-width:360px){
+
+    .jos-body{
+        padding:15px;
+    }
+
+    .jos-service{
+        padding:10px;
+    }
+
+    .service-icon{
+
+        width:40px;
+        height:40px;
+    }
+
+    .service-text strong{
+        font-size:13px;
+    }
+
+    .service-text span{
+        font-size:10.5px;
+    }
+
+    .jos-btn{
+
+        min-height:45px;
+
+        font-size:13px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     LANDING
+===================================================== -->
+
+<!-- =====================================================
+     PROFESSIONAL APP LOGIN / OPENING VIEW
+===================================================== -->
+<section id="landing" class="app-login-page">
+
+  <!-- Background decoration -->
+  <div class="login-bg-shape shape-1"></div>
+  <div class="login-bg-shape shape-2"></div>
+  <div class="login-bg-shape shape-3"></div>
+
+  <div class="login-app-wrapper">
+
+    <!-- =================================================
+         LEFT / BRANDING AREA
+    ================================================== -->
+    <div class="login-brand-area">
+
+      <div class="brand-logo-box">
+        <div class="brand-logo">
+          <i class="fa-solid fa-building"><image src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlWiDnUltsVruynsH_F_cnk3-FLDHJ7tLsa67FNFhG18Q2fkCwnD_m9bq2uQWqSl13PC6W-1B4vtEVY_RICwtHFvKeNaDWrXdgjDtbo4xWB13yK4ffKOQR6XFgBPGuN2_53fMVq1lfxAWgj=s680-w680-h510-rw" style="height:50px;"></image></i>
+        </div>
+      </div>
+
+      <div class="brand-content">
+        <h1>JANA ONLINE SERVICE</h1>
+
+        <p class="brand-subtitle">
+          Your Digital Service Partner
+        </p>
+
+        <p class="brand-description">
+          এক জায়গা থেকেই আপনার প্রয়োজনীয় Online Service,
+          Digital Service এবং Business Support পরিচালনা করুন।
+        </p>
+      </div>
+
+      <div class="brand-features">
+
+        <div class="brand-feature">
+          <div class="feature-icon">
+            <i class="fa-solid fa-shield-halved"><image src="https://i.pinimg.com/originals/74/21/58/7421588cce1c5faa05e21b5b498c2ada.gif" style="width:80%"></image></i>
+          </div>
+          <div>
+            <strong>Secure</strong>
+            <span>নিরাপদ Login System</span>
+          </div>
+        </div>
+
+        <div class="brand-feature">
+          <div class="feature-icon">
+            <i class="fa-solid fa-bolt"><image src="https://cdn.pixabay.com/animation/2023/06/13/15/13/15-13-39-266_512.gif" style="width:80%"></image></i>
+          </div>
+          <div>
+            <strong>Fast Service</strong>
+            <span>দ্রুত Online Service</span>
+          </div>
+        </div>
+
+        <div class="brand-feature">
+          <div class="feature-icon">
+            <i class="fa-solid fa-headset"><image src="https://cdn.pixabay.com/animation/2023/06/13/15/13/15-13-36-234_512.gif" style="width:80%"></i>
+          </div>
+          <div>
+            <strong>Support</strong>
+            <span>Customer Support</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- =================================================
+         LOGIN AREA
+    ================================================== -->
+    <div class="login-card-area">
+
+      <div class="professional-login-card">
+
+        <!-- Login Header -->
+        <div class="login-header">
+
+          <div class="mobile-logo">
+            <div class="mobile-logo-icon">
+              <i class="fa-solid fa-building"></i>
+            </div>
+          </div>
+
+          <h2 id="loginTitle">Welcome Back</h2>
+
+          <p id="loginSubtitle">
+            আপনার Account-এ Login করুন
+          </p>
+
+        </div>
+
+
+        <!-- =================================================
+             LOGIN CARD
+        ================================================== -->
+        <div id="loginCard" class="auth-card professional-auth-card">
+
+          <form id="loginForm">
+
+            <!-- Account Type -->
+            <div class="account-type-title">
+              <span>Login As</span>
+            </div>
+
+            <div class="login-type-buttons">
+
+              <button
+                type="button"
+                class="login-type-btn active"
+                data-type="user"
+                id="userLoginBtn">
+
+                <i class="fa-solid fa-user"></i>
+
+                <span>
+                  <strong>User</strong>
+                  <small>User Account</small>
+                </span>
+
+              </button>
+
+
+              <button
+                type="button"
+                class="login-type-btn"
+                data-type="admin"
+                id="adminLoginBtn">
+
+                <i class="fa-solid fa-user-shield"></i>
+
+                <span>
+                  <strong>Admin</strong>
+                  <small>Admin Panel</small>
+                </span>
+
+              </button>
+
+            </div>
+
+
+            <!-- Hidden login type -->
+            <select id="loginType" hidden>
+              <option value="user">User</option>
+              <option value="admin">Admin</option>
+            </select>
+
+
+            <!-- Login ID -->
+            <div class="modern-input-group">
+
+              <label for="loginId">
+                <i class="fa-solid fa-id-card"></i>
+                Profile ID / Mobile
+              </label>
+
+              <div class="modern-input">
+
+                <i class="fa-solid fa-user"></i>
+
+                <input
+                  type="text"
+                  id="loginId"
+                  placeholder="JOS10001 / Mobile Number"
+                  autocomplete="username"
+                  required>
+
+              </div>
+
+            </div>
+
+
+            <!-- Password -->
+            <div class="modern-input-group">
+
+              <label for="loginPassword">
+                <i class="fa-solid fa-lock"></i>
+                Password
+              </label>
+
+              <div class="modern-input">
+
+                <i class="fa-solid fa-key"></i>
+
+                <input
+                  type="password"
+                  id="loginPassword"
+                  placeholder="Enter your password"
+                  autocomplete="current-password"
+                  required>
+
+                <button
+                  type="button"
+                  class="password-toggle"
+                  id="togglePassword"
+                  aria-label="Show password">
+
+                  <i class="fa-solid fa-eye"></i>
+
+                </button>
+
+              </div>
+
+            </div>
+
+
+            <!-- Remember -->
+            <div class="login-options">
+
+              <label class="remember-me">
+
+                <input
+                  type="checkbox"
+                  id="rememberLogin">
+
+                <span class="custom-checkbox"></span>
+
+                <span>Remember me</span>
+
+              </label>
+
+              <span class="secure-login">
+                <i class="fa-solid fa-shield-halved"></i>
+                Secure Login
+              </span>
+
+            </div>
+
+
+            <!-- Login Button -->
+            <button
+              type="submit"
+              class="professional-login-btn"
+              id="loginSubmitBtn">
+
+              <span class="login-btn-text">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                LOGIN
+              </span>
+
+              <span class="login-btn-loading" style="display:none;">
+                <i class="fa-solid fa-spinner fa-spin"></i>
+                Please Wait...
+              </span>
+
+            </button>
+
+
+            <!-- Registration -->
+            <div class="registration-area">
+
+              <div class="registration-line">
+                <span>New User?</span>
+              </div>
+
+              <button
+                type="button"
+                id="openRegistration"
+                class="registration-btn">
+
+                <i class="fa-solid fa-user-plus"></i>
+
+                Create New Account
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+              </button>
+
+            </div>
+
+          </form>
+
+        </div>
+
+
+        <!-- =================================================
+             REGISTRATION CARD
+        ================================================== -->
+        <div
+          id="registerCard"
+          class="auth-card professional-auth-card"
+          style="display:none;">
+
+          <div class="register-top">
+
+            <button
+              type="button"
+              id="backToLogin"
+              class="back-login-btn">
+
+              <i class="fa-solid fa-arrow-left"></i>
+              Back to Login
+
+            </button>
+
+            <h2>Create Account</h2>
+
+            <p>
+              আপনার তথ্য দিয়ে Registration করুন
+            </p>
+
+          </div>
+
+
+          <!-- IMPORTANT:
+               আপনার existing registration form-এর
+               সব fields এখানে আগের মতোই রাখবেন.
+          -->
+
+          <form id="registerForm">
+
+            <!-- Name -->
+            <div class="modern-input-group">
+              <label for="regName">Name</label>
+
+              <div class="modern-input">
+                <i class="fa-solid fa-user"></i>
+
+                <input
+                  type="text"
+                  id="regName"
+                  placeholder="Full Name"
+                  required>
+              </div>
+            </div>
+
+
+            <!-- Designation -->
+            <div class="modern-input-group">
+              <label for="regDesignation">Designation</label>
+
+              <div class="modern-input">
+                <i class="fa-solid fa-briefcase"></i>
+
+                <input
+                  type="text"
+                  id="regDesignation"
+                  placeholder="Designation"
+                  required>
+              </div>
+            </div>
+
+
+            <!-- Mobile -->
+            <div class="modern-input-group">
+              <label for="regMobile">Mobile Number</label>
+
+              <div class="modern-input">
+                <i class="fa-solid fa-phone"></i>
+
+                <input
+                  type="tel"
+                  id="regMobile"
+                  placeholder="10 Digit Mobile Number"
+                  maxlength="10"
+                  required>
+              </div>
+            </div>
+
+
+            <!-- Email -->
+            <div class="modern-input-group">
+              <label for="regEmail">Email</label>
+
+              <div class="modern-input">
+                <i class="fa-solid fa-envelope"></i>
+
+                <input
+                  type="email"
+                  id="regEmail"
+                  placeholder="Email Address"
+                  required>
+              </div>
+            </div>
+
+
+            <!-- Office Name -->
+            <div class="modern-input-group">
+              <label for="regOfficeName">Office / Business Name</label>
+
+              <div class="modern-input">
+                <i class="fa-solid fa-building"></i>
+
+                <input
+                  type="text"
+                  id="regOfficeName"
+                  placeholder="Office / Business Name"
+                  required>
+              </div>
+            </div>
+
+
+            <!-- Business Type -->
+            <div class="modern-input-group">
+              <label for="regBusinessType">Business / Office Type</label>
+
+              <div class="modern-input">
+                <i class="fa-solid fa-layer-group"></i>
+
+                <input
+                  type="text"
+                  id="regBusinessType"
+                  placeholder="Business / Office Type"
+                  required>
+              </div>
+            </div>
+
+
+            <!-- Address -->
+            <div class="modern-input-group">
+              <label for="regOfficeAddress">Office Address</label>
+
+              <div class="modern-input">
+                <i class="fa-solid fa-location-dot"></i>
+
+                <input
+                  type="text"
+                  id="regOfficeAddress"
+                  placeholder="Office Address"
+                  required>
+              </div>
+            </div>
+
+
+            <!-- District -->
+            <div class="modern-input-group">
+              <label for="regDistrict">District</label>
+
+              <div class="modern-input">
+                <i class="fa-solid fa-map"></i>
+
+                <input
+                  type="text"
+                  id="regDistrict"
+                  placeholder="District"
+                  required>
+              </div>
+            </div>
+
+
+            <!-- State -->
+            <div class="modern-input-group">
+              <label for="regState">State</label>
+
+              <div class="modern-input">
+                <i class="fa-solid fa-map-location-dot"></i>
+
+                <input
+                  type="text"
+                  id="regState"
+                  value="West Bengal"
+                  required>
+              </div>
+            </div>
+
+
+            <!-- Pincode -->
+            <div class="modern-input-group">
+              <label for="regPincode">Pincode</label>
+
+              <div class="modern-input">
+                <i class="fa-solid fa-location-crosshairs"></i>
+
+                <input
+                  type="text"
+                  id="regPincode"
+                  placeholder="Pincode"
+                  maxlength="6"
+                  required>
+              </div>
+            </div>
+
+
+            <!-- GST -->
+            <div class="modern-input-group">
+              <label for="regGST">GST Number</label>
+
+              <div class="modern-input">
+                <i class="fa-solid fa-file-invoice"></i>
+
+                <input
+                  type="text"
+                  id="regGST"
+                  placeholder="GST Number (Optional)">
+              </div>
+            </div>
+
+
+            <!-- User ID -->
+            <div class="modern-input-group">
+              <label for="regUserId">
+                User ID <small>(Optional)</small>
+              </label>
+
+              <div class="modern-input">
+                <i class="fa-solid fa-id-badge"></i>
+
+                <input
+                  type="text"
+                  id="regUserId"
+                  placeholder="Create User ID">
+              </div>
+            </div>
+
+
+            <!-- Password -->
+            <div class="modern-input-group">
+              <label for="regPassword">Password</label>
+
+              <div class="modern-input">
+                <i class="fa-solid fa-lock"></i>
+
+                <input
+                  type="password"
+                  id="regPassword"
+                  placeholder="Create Password"
+                  required>
+
+                <button
+                  type="button"
+                  class="password-toggle"
+                  data-target="regPassword">
+
+                  <i class="fa-solid fa-eye"></i>
+
+                </button>
+              </div>
+            </div>
+
+
+            <!-- Confirm Password -->
+            <div class="modern-input-group">
+              <label for="regConfirmPassword">
+                Confirm Password
+              </label>
+
+              <div class="modern-input">
+                <i class="fa-solid fa-lock"></i>
+
+                <input
+                  type="password"
+                  id="regConfirmPassword"
+                  placeholder="Confirm Password"
+                  required>
+
+                <button
+                  type="button"
+                  class="password-toggle"
+                  data-target="regConfirmPassword">
+
+                  <i class="fa-solid fa-eye"></i>
+
+                </button>
+              </div>
+            </div>
+
+
+            <button
+              type="submit"
+              class="professional-login-btn">
+
+              <i class="fa-solid fa-user-plus"></i>
+              REGISTER NOW
+
+            </button>
+
+          </form>
+
+        </div>
+
+
+        <!-- Footer -->
+        <div class="login-footer">
+
+          <span>
+            © 2026 Jana Online Service
+          </span>
+
+          <span class="footer-dot">•</span>
+
+          <span>
+            <i class="fa-solid fa-lock"></i>
+            Secure Platform
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     USER DASHBOARD
+===================================================== -->
+
+<section
+  id="userDashboard"
+  class="dashboard hidden"
+>
+
+
+  <!-- TOP BAR -->
+
+  <div class="topbar">
+
+    <div class="brand">
+      Jana <span>Online Service</span>
+    </div>
+
+    <div class="top-actions">
+
+      <button
+        class="btn btn-light"
+        id="statusCheckBtn"
+      >
+        🔄 Status
+      </button>
+
+      <button
+        class="profile-btn"
+        id="userProfileBtn"
+        title="Profile"
+      >
+        👤
+      </button>
+
+      <button
+        class="btn btn-danger"
+        id="userLogoutBtn"
+      >
+        Logout
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- USER BANNER -->
+
+<div class="user-banner">
+
+    <div class="banner-inner">
+
+      <h1 id="welcomeUser">
+        Welcome
+      </h1>
+
+      <p id="welcomeOffice">
+        আপনার Dashboard
+      </p>
+
+    </div>
+
+  </div>
+ 
+
+  <!-- NOTICE -->
+
+  <div class="notice-bar">
+
+    <div class="notice-label">
+      <span>📢</span>
+      <span>NOTICE</span>
+    </div>
+
+    <div class="notice-content">
+
+      <div class="notice-track">
+
+        <span class="notice-item">
+          🔔 Welcome to Jana Online Service
+        </span>
+
+        <span class="notice-item">
+          🆕 নতুন অনলাইন সার্ভিস এখন উপলব্ধ
+          <b>NEW</b>
+        </span>
+
+        <span class="notice-item">
+          💻 All Digital Services Available Here
+        </span>
+
+        <span class="notice-item">
+          📞 For any help, contact us
+        </span>
+
+        <span class="notice-item">
+          🔔 Welcome to Jana Online Service
+        </span>
+
+        <span class="notice-item">
+          🆕 নতুন অনলাইন সার্ভিস এখন উপলব্ধ
+          <b>NEW</b>
+        </span>
+
+        <span class="notice-item">
+          💻 All Digital Services Available Here
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =================================================
+       ADMIN ASSIGNED SERVICES
+  
+  <!-- =================================================
+       COMMON ONLINE SERVICES
+       এই অংশ সব User-এর জন্য
+       Admin Assignment প্রয়োজন নেই
+  ================================================= -->
+
+  <section
+    id="commonOnlineServices"
+    class="common-service-section"
+  >
+
+    <div class="common-service-container">
+
+
+      <div class="common-service-header">
+
+        <div class="common-service-badge">
+          ⚡ Online Service Center
+        </div>
+
+        <h2>
+          Jana Online <span>Services</span>
+        </h2>
+
+        <p>
+          আপনার প্রয়োজনীয় Online ও Digital Services
+          এক জায়গায়। Service-এ ক্লিক করে প্রয়োজনীয়
+          option নির্বাচন করুন।
+        </p>
+
+      </div>
+
+
+      <div class="common-service-toolbar">
+
+        <div
+          id="commonServiceCount"
+          class="common-service-count"
+        >
+          0 Services Available
+        </div>
+
+        <div class="common-search-box">
+
+          <span>🔍</span>
+
+          <input
+            type="text"
+            id="commonServiceSearch"
+            placeholder="Search service..."
+            autocomplete="off"
+          >
+
+        </div>
+
+      </div>
+
+
+      <div
+        id="commonServiceGrid"
+        class="common-service-grid"
+      ></div>
+
+
+      <div
+        id="commonServiceNoResult"
+        class="common-service-no-result"
+      >
+
+        <div>🔎</div>
+
+        <strong>
+          Service Not Found
+        </strong>
+
+        <p>
+          অন্য কোনো service name দিয়ে search করুন।
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</section>
+
+
+  <div class="dashboard-container">
+
+    
+
+    <div
+      id="userServices"
+      class="service-grid"
+    ></div>
+
+  </div>
+  
+
+<!-- =====================================================
+     ADMIN PANEL
+===================================================== -->
+
+<section
+  id="adminPage"
+  class="admin-page hidden"
+>
+
+  <div class="topbar">
+
+    <div class="brand">
+      জানা <span>Admin Panel</span>
+    </div>
+
+    <div class="top-actions">
+
+      <button
+        class="btn btn-light"
+        id="adminRefreshBtn"
+      >
+        🔄 Refresh
+      </button>
+
+      <button
+        class="btn btn-danger"
+        id="adminLogoutBtn"
+      >
+        Logout
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <div class="admin-container">
+
+    <div class="admin-header">
+
+      <div>
+
+        <h1>
+          Admin Dashboard
+        </h1>
+
+        <p
+          style="color:#64748b;margin-top:5px"
+        >
+          User ও Service সম্পূর্ণ Google Sheet থেকে Control করুন।
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- STATS -->
+
+    <div class="stats">
+
+      <div class="stat-card">
+        <small>Total Users</small>
+        <strong id="totalUsers">0</strong>
+      </div>
+
+      <div class="stat-card">
+        <small>Active Users</small>
+        <strong id="activeUsers">0</strong>
+      </div>
+
+      <div class="stat-card">
+        <small>Inactive Users</small>
+        <strong id="inactiveUsers">0</strong>
+      </div>
+
+      <div class="stat-card">
+        <small>Total Services</small>
+        <strong id="totalServices">0</strong>
+      </div>
+
+    </div>
+
+
+    <!-- USERS -->
+
+    <div class="admin-section">
+
+      <div class="section-head">
+        <h2>User Management</h2>
+      </div>
+
+      <div class="table-wrap">
+
+        <table>
+
+          <thead>
+
+            <tr>
+              <th>User ID</th>
+              <th>Name</th>
+              <th>Mobile</th>
+              <th>Office</th>
+              <th>District</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+
+          </thead>
+
+          <tbody id="adminUsersBody"></tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+
+    <!-- SERVICES -->
+
+    <div class="admin-section">
+
+      <div class="section-head">
+
+        <h2>
+          Service Management
+        </h2>
+
+        <button
+          class="btn btn-primary"
+          id="addServiceBtn"
+        >
+          + Add Service
+        </button>
+
+      </div>
+
+      <div
+        id="adminServices"
+        class="service-admin-grid"
+      ></div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PROFILE MODAL
+===================================================== -->
+
+<div
+  class="modal"
+  id="profileModal"
+>
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+
+      <h2>User Profile</h2>
+
+      <button
+        class="close-btn"
+        data-close="profileModal"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <div class="modal-body">
+
+      <div
+        id="profileContent"
+        class="profile-grid"
+      ></div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<!-- USER DETAILS -->
+
+<div
+  class="modal"
+  id="userDetailsModal"
+>
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+
+      <h2>User Details</h2>
+
+      <button
+        class="close-btn"
+        data-close="userDetailsModal"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <div class="modal-body">
+
+      <div
+        id="adminProfileContent"
+        class="profile-grid"
+      ></div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<!-- EDIT USER -->
+
+<div
+  class="modal"
+  id="editUserModal"
+>
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+
+      <h2>Edit User</h2>
+
+      <button
+        class="close-btn"
+        data-close="editUserModal"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <div class="modal-body">
+
+      <form id="editUserForm">
+
+        <input
+          type="hidden"
+          id="editOldUserId"
+        >
+
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label>User ID</label>
+            <input
+              id="editUserId"
+              class="form-control"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label>Name</label>
+            <input
+              id="editName"
+              class="form-control"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label>Designation</label>
+            <input
+              id="editDesignation"
+              class="form-control"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label>Mobile</label>
+            <input
+              id="editMobile"
+              class="form-control"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label>Email</label>
+            <input
+              id="editEmail"
+              class="form-control"
+            >
+          </div>
+
+          <div class="form-group">
+            <label>Office Name</label>
+            <input
+              id="editOfficeName"
+              class="form-control"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label>Office Type</label>
+            <input
+              id="editOfficeType"
+              class="form-control"
+              required
+            >
+          </div>
+
+          <div class="form-group full">
+            <label>Office Address</label>
+            <textarea
+              id="editOfficeAddress"
+              class="form-control"
+              rows="2"
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>District</label>
+            <input
+              id="editDistrict"
+              class="form-control"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label>State</label>
+            <input
+              id="editState"
+              class="form-control"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label>Pincode</label>
+            <input
+              id="editPincode"
+              class="form-control"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label>GST</label>
+            <input
+              id="editGST"
+              class="form-control"
+            >
+          </div>
+
+          <div class="form-group full">
+
+            <label>
+              New Password
+            </label>
+
+            <input
+              id="editPassword"
+              class="form-control"
+              type="password"
+              placeholder="Change করতে চাইলে লিখুন"
+            >
+
+          </div>
+
+        </div>
+
+
+        <div
+          class="modal-footer"
+          style="padding:20px 0 0"
+        >
+
+          <button
+            type="button"
+            class="btn btn-light"
+            data-close="editUserModal"
+          >
+            Cancel
+          </button>
+
+          <button
+            type="submit"
+            class="btn btn-primary"
+          >
+            Save Changes
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<!-- ADD SERVICE -->
+
+<div
+  class="modal"
+  id="serviceModal"
+>
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+
+      <h2>Add Service</h2>
+
+      <button
+        class="close-btn"
+        data-close="serviceModal"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <div class="modal-body">
+
+      <form id="serviceForm">
+
+        <div class="form-group">
+
+          <label>
+            Service Name *
+          </label>
+
+          <input
+            id="serviceName"
+            class="form-control"
+            required
+          >
+
+        </div>
+
+        <div class="form-group">
+
+          <label>
+            Icon
+          </label>
+
+          <input
+            id="serviceIcon"
+            class="form-control"
+            placeholder="যেমন: 🧾 / 💳 / 📄"
+          >
+
+        </div>
+
+        <div class="form-group">
+
+          <label>
+            Description
+          </label>
+
+          <textarea
+            id="serviceDescription"
+            class="form-control"
+            rows="3"
+          ></textarea>
+
+        </div>
+
+        <div class="form-group">
+
+          <label>
+            Service URL *
+          </label>
+
+         <input
+  type="url"
+  id="serviceUrl"
+  name="serviceUrl"
+  placeholder="https://example.com/"
+  required
+  autocomplete="url"
+>
+        </div>
+
+        <div
+          class="modal-footer"
+          style="padding:10px 0 0"
+        >
+
+          <button
+            type="button"
+            class="btn btn-light"
+            data-close="serviceModal"
+          >
+            Cancel
+          </button>
+
+          <button
+            type="submit"
+            class="btn btn-primary"
+          >
+            Add Service
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<!-- ASSIGN SERVICE -->
+
+<div
+  class="modal"
+  id="assignModal"
+>
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+
+      <h2>
+        Assign Services
+      </h2>
+
+      <button
+        class="close-btn"
+        data-close="assignModal"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <div class="modal-body">
+
+      <input
+        type="hidden"
+        id="assignUserId"
+      >
+
+      <div id="assignServicesList"></div>
+
+      <div
+        class="modal-footer"
+        style="padding:20px 0 0"
+      >
+
+        <button
+          type="button"
+          class="btn btn-light"
+          data-close="assignModal"
+        >
+          Cancel
+        </button>
+
+        <button
+          type="button"
+          class="btn btn-primary"
+          id="saveAssignmentsBtn"
+        >
+          Save Assignment
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<!-- SUCCESS -->
+
+<div
+  class="modal"
+  id="successModal"
+>
+
+  <div class="modal-box">
+
+    <div class="success-box">
+
+      <div class="success-icon">
+        ✓
+      </div>
+
+      <h2>
+        Registration Successful
+      </h2>
+
+      <p
+        style="color:#64748b;margin-top:7px"
+      >
+        আপনার Account তৈরি হয়েছে।
+        Admin Activation-এর পরে Login করতে পারবেন।
+      </p>
+
+      <div class="credential-box">
+
+        <div class="credential-row">
+          <span>User ID</span>
+          <strong id="successUserId"></strong>
+        </div>
+
+        <div class="credential-row">
+          <span>Password</span>
+          <strong id="successPassword"></strong>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="modal-footer">
+
+      <button
+        class="btn btn-primary"
+        id="successCloseBtn"
+      >
+        Close
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     COMMON SERVICE MODAL
+===================================================== -->
+
+<div
+  id="commonServiceModal"
+  class="common-service-modal-overlay"
+>
+
+  <div class="common-service-modal">
+
+    <div class="common-modal-header">
+
+      <div class="common-modal-title-area">
+
+        <div
+          id="commonModalIcon"
+          class="common-modal-icon"
+        >
+          ⚡
+        </div>
+
+        <div>
+
+          <h3 id="commonModalTitle">
+            Service
+          </h3>
+
+          <p id="commonModalDescription">
+            Select an option
+          </p>
+
+        </div>
+
+      </div>
+
+      <button
+        type="button"
+        id="commonModalClose"
+        class="common-modal-close"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <div class="common-modal-body">
+
+      <div class="common-modal-label">
+        Select Service Option
+      </div>
+
+      <div
+        id="commonServiceLinks"
+        class="common-service-links"
+      ></div>
+
+    </div>
+
+
+    <div class="common-modal-footer">
+
+      <div class="common-contact-buttons">
+
+        <a
+          href="#"
+          id="commonCallButton"
+          class="common-call-button"
+        >
+          📞 Call
+        </a>
+
+        <a
+          href="#"
+          id="commonWhatsappButton"
+          class="common-whatsapp-button"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          💬 WhatsApp
+        </a>
+
+      </div>
+
+      <small>
+        Links open in new tab
+      </small>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<!-- IFRAME VIEWER -->
+
+<div
+  class="viewer"
+  id="serviceViewer"
+>
+
+  <div class="viewer-bar">
+
+    <div
+      class="viewer-title"
+      id="viewerTitle"
+    >
+      Service
+    </div>
+
+    <button
+      class="viewer-close"
+      id="viewerClose"
+    >
+      ×
+    </button>
+
+  </div>
+
+  <iframe
+    id="serviceFrame"
+    title="Online Service"
+    allow="camera; microphone; geolocation; payment"
+  ></iframe>
+
+</div>
+
+
+
+<!-- TOAST -->
+
+<div
+  id="toast"
+  class="toast"
+></div>
+
+
+
+<!-- LOADER -->
+
+<div
+  id="loader"
+  class="loader"
+>
+
+  <div class="loader-box">
+
+    <div class="spinner"></div>
+
+    <strong id="loaderText">
+      Please wait...
+    </strong>
+
+  </div>
+
+</div>
+
+
+
+<!-- GOOGLE API IFRAME -->
+
+<iframe
+  name="googleApiFrame"
+  id="googleApiFrame"
+  style="display:none"
+></iframe>
+
+
+
+
+<!-- =====================================================
+     POPUP
+===================================================== -->
+
+<div id="josPopup" class="jos-popup">
+
+
+    <!-- Overlay -->
+
+    <div class="jos-overlay"
+         onclick="closePopup()">
+    </div>
+
+
+
+    <!-- Popup Card -->
+
+    <div class="jos-card">
+
+
+        <!-- Mobile Handle -->
+
+        <div class="jos-handle"></div>
+
+
+
+        <!-- HEADER -->
+
+        <div class="jos-header">
+
+
+            <!-- Logo -->
+
+            <div class="jos-logo">
+
+                <i class="fa-solid fa-bolt"></i>
+
+            </div>
+
+
+
+            <!-- Title -->
+
+            <div class="jos-title">
+
+                <h3>
+                    Jana Online Service
+                </h3>
+
+                <p>
+                    Digital Service Center
+                </p>
+
+            </div>
+
+
+
+            <!-- Close -->
+
+            <button
+                class="jos-close"
+                onclick="closePopup()">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+
+
+        <!-- BODY -->
+
+        <div class="jos-body">
+
+
+            <!-- Welcome -->
+
+            <div class="jos-welcome">
+
+                <h2>
+                    স্বাগতম! 👋
+                </h2>
+
+                <p>
+                    আপনার প্রয়োজনীয় Online ও Digital
+                    Services এখন এক জায়গায়।
+                </p>
+
+            </div>
+
+
+
+            <!-- SERVICES -->
+
+            <div class="jos-services">
+
+
+                <!-- Service 1 -->
+
+                <div class="jos-service">
+
+                    <div class="service-icon blue">
+
+                        <i class="fa-solid fa-id-card"></i>
+
+                    </div>
+
+                    <div class="service-text">
+
+                        <strong>
+                            Government Services
+                        </strong>
+
+                        <span>
+                            PAN, Aadhaar, Voter & Certificate
+                        </span>
+
+                    </div>
+
+                    <div class="service-arrow">
+
+                        <i class="fa-solid fa-chevron-right"></i>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Service 2 -->
+
+                <div class="jos-service">
+
+                    <div class="service-icon green">
+
+                        <i class="fa-solid fa-ticket"></i>
+
+                    </div>
+
+                    <div class="service-text">
+
+                        <strong>
+                            Booking Services
+                        </strong>
+
+                        <span>
+                            Train, Flight & Other Booking
+                        </span>
+
+                    </div>
+
+                    <div class="service-arrow">
+
+                        <i class="fa-solid fa-chevron-right"></i>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Service 3 -->
+
+                <div class="jos-service">
+
+                    <div class="service-icon orange">
+
+                        <i class="fa-solid fa-laptop"></i>
+
+                    </div>
+
+                    <div class="service-text">
+
+                        <strong>
+                            Online Work
+                        </strong>
+
+                        <span>
+                            Form Fill-up, Printing & Digital Work
+                        </span>
+
+                    </div>
+
+                    <div class="service-arrow">
+
+                        <i class="fa-solid fa-chevron-right"></i>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- NOTICE -->
+
+            <div class="jos-notice">
+
+                <i class="fa-solid fa-circle-info"></i>
+
+                <span>
+                    যেকোনো Online Service-এর জন্য
+                    আমাদের সাথে যোগাযোগ করুন।
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- FOOTER -->
+
+        <div class="jos-footer">
+
+
+            <button
+                class="jos-btn close-btn"
+                onclick="closePopup()">
+
+                <i class="fa-solid fa-xmark"></i>
+
+                Close
+
+            </button>
+
+
+
+            <a
+                href="tel:9907992247"
+                class="jos-btn contact-btn">
+
+                <i class="fa-solid fa-phone"></i>
+
+                Contact Now
+
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+
+/* ============================================================
+   JANA ONLINE SERVICE
+   FRONTEND JAVASCRIPT
+============================================================ */
+
+
+/* ============================================================
+   GOOGLE APPS SCRIPT URL
+============================================================ */
+
+const API_URL =
+"https://script.google.com/macros/s/AKfycbzYM8ToB_pKlzEx6BZmuKcoABxlBVoeSMNwHBP4SxEtoZoEAiHypmpb9i61b9rsWTHZ/exec";
+
+
+/* ============================================================
+   GLOBAL STATE
+============================================================ */
+
+let currentUser = null;
+let currentAdmin = null;
+
+let allUsers = [];
+let allServices = [];
+let allAssignments = [];
+
+let editingUser = null;
+
+
+/* ============================================================
+   HELPER
+============================================================ */
+
+const $ = id =>
+  document.getElementById(id);
+
+
+/* ============================================================
+   LOADER
+============================================================ */
+
+function showLoader(
+  text = "Please wait..."
+){
+
+  $("loaderText").textContent =
+    text;
+
+  $("loader")
+    .classList.add("active");
+
+}
+
+
+function hideLoader(){
+
+  $("loader")
+    .classList.remove("active");
+
+}
+
+
+/* ============================================================
+   TOAST
+============================================================ */
+
+function showToast(
+  message,
+  type = ""
+){
+
+  const toast =
+    $("toast");
+
+  toast.textContent =
+    message;
+
+  toast.className =
+    "toast show " + type;
+
+  setTimeout(function(){
+
+    toast.className =
+      "toast";
+
+  },3500);
+
+}
+
+
+/* ============================================================
+   API
+============================================================ */
+
+async function api(
+  action,
+  data = {}
+){
+
+  try{
+
+    const payload = {
+      action,
+      ...data
+    };
+
+    const response =
+      await fetch(
+        API_URL,
+        {
+          method:"POST",
+
+          headers:{
+            "Content-Type":
+              "text/plain;charset=utf-8"
+          },
+
+          body:
+            JSON.stringify(payload)
+        }
+      );
+
+
+    if(!response.ok){
+
+      throw new Error(
+        "Server Error: " +
+        response.status
+      );
+
+    }
+
+
+    return await response.json();
+
+  }
+
+  catch(error){
+
+    console.error(error);
+
+    return {
+
+      success:false,
+
+      message:
+        "Server-এর সাথে সংযোগ করা যাচ্ছে না।"
+
+    };
+
+  }
+
+}
+
+
+/* ============================================================
+   DOM READY
+============================================================ */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  function(){
+
+    bindEvents();
+
+    initCommonOnlineServices();
+
+    restoreSession();
+
+  }
+);
+
+
+/* ============================================================
+   EVENTS
+============================================================ */
+
+function bindEvents(){
+
+  $("loginForm")
+    .addEventListener(
+      "submit",
+      handleLogin
+    );
+
+
+  $("registerForm")
+    .addEventListener(
+      "submit",
+      handleRegistration
+    );
+
+
+  $("openRegistration")
+    .addEventListener(
+      "click",
+      function(){
+
+        $("loginCard")
+          .classList.add("hidden");
+
+        $("registerCard")
+          .classList.add("active");
+
+      }
+    );
+
+
+  $("backToLogin")
+    .addEventListener(
+      "click",
+      function(){
+
+        $("registerCard")
+          .classList.remove("active");
+
+        $("loginCard")
+          .classList.remove("hidden");
+
+      }
+    );
+
+
+  $("userLogoutBtn")
+    .addEventListener(
+      "click",
+      userLogout
+    );
+
+
+  $("userProfileBtn")
+    .addEventListener(
+      "click",
+      openUserProfile
+    );
+
+
+  $("statusCheckBtn")
+    .addEventListener(
+      "click",
+      refreshUserStatus
+    );
+
+
+  $("adminLogoutBtn")
+    .addEventListener(
+      "click",
+      adminLogout
+    );
+
+
+  $("adminRefreshBtn")
+    .addEventListener(
+      "click",
+      loadAdminData
+    );
+
+
+  $("addServiceBtn")
+    .addEventListener(
+      "click",
+      function(){
+
+        $("serviceForm").reset();
+
+        openModal(
+          "serviceModal"
+        );
+
+      }
+    );
+
+
+  $("editUserForm")
+    .addEventListener(
+      "submit",
+      saveEditedUser
+    );
+
+
+  $("serviceForm")
+    .addEventListener(
+      "submit",
+      createService
+    );
+
+
+  $("saveAssignmentsBtn")
+    .addEventListener(
+      "click",
+      saveAssignments
+    );
+
+
+  $("successCloseBtn")
+    .addEventListener(
+      "click",
+      function(){
+
+        closeModal(
+          "successModal"
+        );
+
+        $("registerForm").reset();
+
+        $("registerCard")
+          .classList.remove("active");
+
+        $("loginCard")
+          .classList.remove("hidden");
+
+      }
+    );
+
+
+  document
+    .querySelectorAll("[data-close]")
+    .forEach(function(button){
+
+      button.addEventListener(
+        "click",
+        function(){
+
+          closeModal(
+            button.dataset.close
+          );
+
+        }
+      );
+
+    });
+
+
+  $("viewerClose")
+    .addEventListener(
+      "click",
+      closeServiceViewer
+    );
+
+}
+
+
+/* ============================================================
+   REGISTRATION
+============================================================ */
+
+async function handleRegistration(e){
+
+  e.preventDefault();
+
+
+  const password =
+    $("regPassword").value;
+
+  const confirmPassword =
+    $("regConfirmPassword").value;
+
+
+  if(
+    password !==
+    confirmPassword
+  ){
+
+    showToast(
+      "Password এবং Confirm Password একই নয়।",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  const data = {
+
+    name:
+      $("regName").value.trim(),
+
+    designation:
+      $("regDesignation").value.trim(),
+
+    mobile:
+      $("regMobile").value.trim(),
+
+    email:
+      $("regEmail").value.trim(),
+
+    officeName:
+      $("regOfficeName").value.trim(),
+
+    officeType:
+      $("regBusinessType").value.trim(),
+
+    officeAddress:
+      $("regOfficeAddress").value.trim(),
+
+    district:
+      $("regDistrict").value.trim(),
+
+    state:
+      $("regState").value.trim(),
+
+    pincode:
+      $("regPincode").value.trim(),
+
+    gst:
+      $("regGST").value.trim(),
+
+    userId:
+      $("regUserId").value.trim(),
+
+    password
+
+  };
+
+
+  showLoader(
+    "Account তৈরি হচ্ছে..."
+  );
+
+
+  const result =
+    await api(
+      "register",
+      data
+    );
+
+
+  hideLoader();
+
+
+  if(!result.success){
+
+    showToast(
+      result.message ||
+      "Registration failed",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  $("successUserId")
+    .textContent =
+      result.userId;
+
+  $("successPassword")
+    .textContent =
+      result.password;
+
+
+  openModal(
+    "successModal"
+  );
+
+
+  showToast(
+    "Registration successful",
+    "success"
+  );
+
+}
+
+
+/* ============================================================
+   LOGIN
+============================================================ */
+
+async function handleLogin(e){
+
+  e.preventDefault();
+
+
+  const loginType =
+    $("loginType").value;
+
+  const loginId =
+    $("loginId").value.trim();
+
+  const password =
+    $("loginPassword").value;
+
+
+  if(!loginType){
+
+    showToast(
+      "Login Type নির্বাচন করুন।",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  showLoader(
+    "Login হচ্ছে..."
+  );
+
+
+  const result =
+    await api(
+      "login",
+      {
+        loginType,
+        loginId,
+        password
+      }
+    );
+
+
+  hideLoader();
+
+
+  if(!result.success){
+
+    showToast(
+      result.message ||
+      "Login failed",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  if(
+    result.type ===
+    "admin"
+  ){
+
+    currentAdmin =
+      result.admin;
+
+    sessionStorage.setItem(
+      "jos_admin",
+      JSON.stringify(
+        result.admin
+      )
+    );
+
+    showAdminPage();
+
+    await loadAdminData();
+
+    return;
+
+  }
+
+
+  if(
+    result.type ===
+    "user"
+  ){
+
+    currentUser =
+      result.user;
+
+    sessionStorage.setItem(
+      "jos_user",
+      JSON.stringify(
+        result.user
+      )
+    );
+
+    showUserDashboard();
+
+    await loadUserServices();
+
+  }
+
+}
+
+
+/* ============================================================
+   SHOW USER DASHBOARD
+============================================================ */
+
+function showUserDashboard(){
+
+  $("landing")
+    .classList.add("hidden");
+
+  $("adminPage")
+    .classList.add("hidden");
+
+  $("userDashboard")
+    .classList.remove("hidden");
+
+
+  $("welcomeUser")
+    .textContent =
+      "Welcome, " +
+      currentUser.name;
+
+
+  $("welcomeOffice")
+    .textContent =
+      currentUser.officeName +
+      " • " +
+      currentUser.designation;
+
+}
+
+
+/* ============================================================
+   ASSIGNED USER SERVICES
+============================================================ */
+
+async function loadUserServices(){
+
+  const box =
+    $("userServices");
+
+
+  box.innerHTML =
+    `<div class="empty-box">
+      Loading Services...
+    </div>`;
+
+
+  const result =
+    await api(
+      "getAssignedServices",
+      {
+        userId:
+          currentUser.userId
+      }
+    );
+
+
+  if(!result.success){
+
+    box.innerHTML =
+      `<div class="empty-box">
+        ${escapeHTML(
+          result.message
+        )}
+      </div>`;
+
+    return;
+
+  }
+
+
+  if(
+    !result.services ||
+    !result.services.length
+  ){
+
+    box.innerHTML =
+      `<div class="empty-box">
+        আপনার জন্য এখনও কোনো Service Assign করা হয়নি।
+      </div>`;
+
+    return;
+
+  }
+
+
+  box.innerHTML =
+    result.services
+      .map(function(service){
+
+        return `
+
+          <div class="service-card">
+
+            <div class="service-icon">
+              ${escapeHTML(
+                service.icon
+              )}
+            </div>
+
+            <h3>
+              ${escapeHTML(
+                service.name
+              )}
+            </h3>
+
+            <p>
+              ${escapeHTML(
+                service.description ||
+                "Online Service"
+              )}
+            </p>
+
+            <button
+              class="btn btn-primary btn-block"
+              onclick="openService(
+                '${escapeJS(service.name)}',
+                '${escapeJS(service.url)}'
+              )"
+            >
+              Open Service
+            </button>
+
+          </div>
+
+        `;
+
+      })
+      .join("");
+
+}
+
+
+/* ============================================================
+   OPEN ASSIGNED SERVICE
+============================================================ */
+
+function openService(
+  title,
+  url
+){
+
+  if(!url){
+
+    showToast(
+      "Service URL পাওয়া যায়নি।",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  $("viewerTitle")
+    .textContent =
+      title;
+
+  $("serviceFrame")
+    .src =
+      url;
+
+  $("serviceViewer")
+    .classList.add("active");
+
+}
+
+
+/* ============================================================
+   CLOSE ASSIGNED SERVICE
+============================================================ */
+
+function closeServiceViewer(){
+
+  $("serviceViewer")
+    .classList.remove("active");
+
+  $("serviceFrame")
+    .src =
+      "about:blank";
+
+}
+
+
+/* ============================================================
+   USER PROFILE
+============================================================ */
+
+function openUserProfile(){
+
+  if(!currentUser)
+    return;
+
+
+  $("profileContent").innerHTML =
+
+    profileItem(
+      "User ID",
+      currentUser.userId
+    ) +
+
+    profileItem(
+      "Name",
+      currentUser.name
+    ) +
+
+    profileItem(
+      "Designation",
+      currentUser.designation
+    ) +
+
+    profileItem(
+      "Mobile",
+      currentUser.mobile
+    ) +
+
+    profileItem(
+      "Email",
+      currentUser.email
+    ) +
+
+    profileItem(
+      "Office Name",
+      currentUser.officeName
+    ) +
+
+    profileItem(
+      "Office Type",
+      currentUser.officeType
+    ) +
+
+    profileItem(
+      "Office Address",
+      currentUser.officeAddress
+    ) +
+
+    profileItem(
+      "District",
+      currentUser.district
+    ) +
+
+    profileItem(
+      "State",
+      currentUser.state
+    ) +
+
+    profileItem(
+      "Pincode",
+      currentUser.pincode
+    ) +
+
+    profileItem(
+      "GST",
+      currentUser.gst
+    ) +
+
+    profileItem(
+      "Status",
+      currentUser.status
+    );
+
+
+  openModal(
+    "profileModal"
+  );
+
+}
+
+
+function profileItem(
+  label,
+  value
+){
+
+  return `
+
+    <div class="profile-item">
+
+      <small>
+        ${escapeHTML(label)}
+      </small>
+
+      <strong>
+        ${escapeHTML(
+          value || "-"
+        )}
+      </strong>
+
+    </div>
+
+  `;
+
+}
+
+
+/* ============================================================
+   USER STATUS
+============================================================ */
+
+async function refreshUserStatus(){
+
+  if(!currentUser)
+    return;
+
+
+  showLoader(
+    "Status check হচ্ছে..."
+  );
+
+
+  const result =
+    await api(
+      "getUser",
+      {
+        userId:
+          currentUser.userId
+      }
+    );
+
+
+  hideLoader();
+
+
+  if(!result.success){
+
+    showToast(
+      result.message,
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  currentUser =
+    result.user;
+
+
+  sessionStorage.setItem(
+    "jos_user",
+    JSON.stringify(
+      currentUser
+    )
+  );
+
+
+  if(
+    String(
+      currentUser.status
+    ).toLowerCase() !==
+    "active"
+  ){
+
+    showToast(
+      "আপনার Account এখন Inactive।",
+      "error"
+    );
+
+    userLogout();
+
+    return;
+
+  }
+
+
+  showToast(
+    "আপনার Account Active আছে।",
+    "success"
+  );
+
+
+  loadUserServices();
+
+}
+
+
+/* ============================================================
+   USER LOGOUT
+============================================================ */
+
+function userLogout(){
+
+  currentUser =
+    null;
+
+  sessionStorage.removeItem(
+    "jos_user"
+  );
+
+  location.reload();
+
+}
+
+
+/* ============================================================
+   ADMIN
+============================================================ */
+
+function showAdminPage(){
+
+  $("landing")
+    .classList.add("hidden");
+
+  $("userDashboard")
+    .classList.add("hidden");
+
+  $("adminPage")
+    .classList.remove("hidden");
+
+}
+
+
+/* ============================================================
+   LOAD ADMIN
+============================================================ */
+
+async function loadAdminData(){
+
+  showLoader(
+    "Admin Data loading..."
+  );
+
+
+  const result =
+    await api(
+      "getAdminData"
+    );
+
+
+  hideLoader();
+
+
+  if(!result.success){
+
+    showToast(
+      result.message,
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  allUsers =
+    result.users || [];
+
+  allServices =
+    result.services || [];
+
+  allAssignments =
+    result.assignments || [];
+
+
+  renderAdminUsers();
+
+  renderAdminServices();
+
+  updateStats();
+
+}
+
+
+/* ============================================================
+   ADMIN USERS
+============================================================ */
+
+function renderAdminUsers(){
+
+  const body =
+    $("adminUsersBody");
+
+
+  if(!allUsers.length){
+
+    body.innerHTML = `
+
+      <tr>
+        <td colspan="7">
+          No users found.
+        </td>
+      </tr>
+
+    `;
+
+    return;
+
+  }
+
+
+  body.innerHTML =
+    allUsers
+      .map(function(user){
+
+        const active =
+          String(
+            user.status
+          ).toLowerCase() ===
+          "active";
+
+
+        return `
+
+          <tr>
+
+            <td>
+              <strong>
+                ${escapeHTML(
+                  user.userId
+                )}
+              </strong>
+            </td>
+
+            <td>
+              ${escapeHTML(
+                user.name
+              )}
+            </td>
+
+            <td>
+              ${escapeHTML(
+                user.mobile
+              )}
+            </td>
+
+            <td>
+              ${escapeHTML(
+                user.officeName
+              )}
+            </td>
+
+            <td>
+              ${escapeHTML(
+                user.district
+              )}
+            </td>
+
+            <td>
+
+              <span class="status ${
+                active
+                  ? "active"
+                  : "inactive"
+              }">
+
+                ${
+                  active
+                    ? "Active"
+                    : "Inactive"
+                }
+
+              </span>
+
+            </td>
+
+            <td>
+
+              <div class="action-buttons">
+
+                <button
+                  class="btn btn-light"
+                  onclick="viewUser(
+                    '${escapeJS(
+                      user.userId
+                    )}'
+                  )"
+                >
+                  View
+                </button>
+
+                <button
+                  class="btn btn-primary"
+                  onclick="editUser(
+                    '${escapeJS(
+                      user.userId
+                    )}'
+                  )"
+                >
+                  Edit
+                </button>
+
+                <button
+                  class="btn btn-warning"
+                  onclick="assignUser(
+                    '${escapeJS(
+                      user.userId
+                    )}'
+                  )"
+                >
+                  Services
+                </button>
+
+                <button
+                  class="btn ${
+                    active
+                      ? "btn-danger"
+                      : "btn-success"
+                  }"
+                  onclick="toggleUser(
+                    '${escapeJS(
+                      user.userId
+                    )}'
+                  )"
+                >
+                  ${
+                    active
+                      ? "Deactivate"
+                      : "Activate"
+                  }
+                </button>
+
+              </div>
+
+            </td>
+
+          </tr>
+
+        `;
+
+      })
+      .join("");
+
+}
+
+
+/* ============================================================
+   ADMIN SERVICES
+============================================================ */
+
+function renderAdminServices(){
+
+  const box =
+    $("adminServices");
+
+
+  if(!allServices.length){
+
+    box.innerHTML =
+      `<div class="empty-box">
+        No Services Found
+      </div>`;
+
+    return;
+
+  }
+
+
+  box.innerHTML =
+    allServices
+      .map(function(service){
+
+        return `
+
+          <div class="admin-service">
+
+            <div class="admin-service-icon">
+              ${escapeHTML(
+                service.icon
+              )}
+            </div>
+
+            <h3>
+              ${escapeHTML(
+                service.name
+              )}
+            </h3>
+
+            <p>
+              ${escapeHTML(
+                service.description ||
+                ""
+              )}
+            </p>
+
+            <div class="action-buttons">
+
+              <button
+                class="btn btn-light"
+                onclick="openService(
+                  '${escapeJS(
+                    service.name
+                  )}',
+                  '${escapeJS(
+                    service.url
+                  )}'
+                )"
+              >
+                Open
+              </button>
+
+              <button
+                class="btn btn-danger"
+                onclick="deleteService(
+                  '${escapeJS(
+                    service.id
+                  )}'
+                )"
+              >
+                Delete
+              </button>
+
+            </div>
+
+          </div>
+
+        `;
+
+      })
+      .join("");
+
+}
+
+
+/* ============================================================
+   STATS
+============================================================ */
+
+function updateStats(){
+
+  const total =
+    allUsers.length;
+
+
+  const active =
+    allUsers.filter(
+      function(user){
+
+        return String(
+          user.status
+        ).toLowerCase() ===
+        "active";
+
+      }
+    ).length;
+
+
+  $("totalUsers")
+    .textContent =
+      total;
+
+  $("activeUsers")
+    .textContent =
+      active;
+
+  $("inactiveUsers")
+    .textContent =
+      total - active;
+
+  $("totalServices")
+    .textContent =
+      allServices.length;
+
+}
+
+
+/* ============================================================
+   VIEW USER
+============================================================ */
+
+function viewUser(
+  userId
+){
+
+  const user =
+    allUsers.find(
+      function(item){
+
+        return item.userId ===
+          userId;
+
+      }
+    );
+
+
+  if(!user)
+    return;
+
+
+  $("adminProfileContent").innerHTML =
+
+    profileItem(
+      "User ID",
+      user.userId
+    ) +
+
+    profileItem(
+      "Name",
+      user.name
+    ) +
+
+    profileItem(
+      "Designation",
+      user.designation
+    ) +
+
+    profileItem(
+      "Mobile",
+      user.mobile
+    ) +
+
+    profileItem(
+      "Email",
+      user.email
+    ) +
+
+    profileItem(
+      "Office Name",
+      user.officeName
+    ) +
+
+    profileItem(
+      "Office Type",
+      user.officeType
+    ) +
+
+    profileItem(
+      "Office Address",
+      user.officeAddress
+    ) +
+
+    profileItem(
+      "District",
+      user.district
+    ) +
+
+    profileItem(
+      "State",
+      user.state
+    ) +
+
+    profileItem(
+      "Pincode",
+      user.pincode
+    ) +
+
+    profileItem(
+      "GST",
+      user.gst
+    ) +
+
+    profileItem(
+      "Status",
+      user.status
+    );
+
+
+  openModal(
+    "userDetailsModal"
+  );
+
+}
+
+
+/* ============================================================
+   EDIT USER
+============================================================ */
+
+function editUser(
+  userId
+){
+
+  const user =
+    allUsers.find(
+      function(item){
+
+        return item.userId ===
+          userId;
+
+      }
+    );
+
+
+  if(!user)
+    return;
+
+
+  editingUser =
+    user;
+
+
+  $("editOldUserId").value =
+    user.userId;
+
+  $("editUserId").value =
+    user.userId;
+
+  $("editName").value =
+    user.name || "";
+
+  $("editDesignation").value =
+    user.designation || "";
+
+  $("editMobile").value =
+    user.mobile || "";
+
+  $("editEmail").value =
+    user.email || "";
+
+  $("editOfficeName").value =
+    user.officeName || "";
+
+  $("editOfficeType").value =
+    user.officeType || "";
+
+  $("editOfficeAddress").value =
+    user.officeAddress || "";
+
+  $("editDistrict").value =
+    user.district || "";
+
+  $("editState").value =
+    user.state || "";
+
+  $("editPincode").value =
+    user.pincode || "";
+
+  $("editGST").value =
+    user.gst || "";
+
+  $("editPassword").value =
+    "";
+
+
+  openModal(
+    "editUserModal"
+  );
+
+}
+
+
+/* ============================================================
+   SAVE USER
+============================================================ */
+
+async function saveEditedUser(e){
+
+  e.preventDefault();
+
+
+  const data = {
+
+    oldUserId:
+      $("editOldUserId").value,
+
+    userId:
+      $("editUserId").value.trim(),
+
+    name:
+      $("editName").value.trim(),
+
+    designation:
+      $("editDesignation").value.trim(),
+
+    mobile:
+      $("editMobile").value.trim(),
+
+    email:
+      $("editEmail").value.trim(),
+
+    officeName:
+      $("editOfficeName").value.trim(),
+
+    officeType:
+      $("editOfficeType").value.trim(),
+
+    officeAddress:
+      $("editOfficeAddress").value.trim(),
+
+    district:
+      $("editDistrict").value.trim(),
+
+    state:
+      $("editState").value.trim(),
+
+    pincode:
+      $("editPincode").value.trim(),
+
+    gst:
+      $("editGST").value.trim(),
+
+    password:
+      $("editPassword").value
+
+  };
+
+
+  showLoader(
+    "User update হচ্ছে..."
+  );
+
+
+  const result =
+    await api(
+      "editUser",
+      data
+    );
+
+
+  hideLoader();
+
+
+  if(!result.success){
+
+    showToast(
+      result.message,
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  closeModal(
+    "editUserModal"
+  );
+
+
+  showToast(
+    "User successfully updated",
+    "success"
+  );
+
+
+  loadAdminData();
+
+}
+
+
+/* ============================================================
+   TOGGLE USER
+============================================================ */
+
+async function toggleUser(
+  userId
+){
+
+  const user =
+    allUsers.find(
+      function(item){
+
+        return item.userId ===
+          userId;
+
+      }
+    );
+
+
+  if(!user)
+    return;
+
+
+  const current =
+    String(
+      user.status
+    ).toLowerCase();
+
+
+  const message =
+    current === "active"
+      ? "এই User-কে Deactivate করবেন?"
+      : "এই User-কে Activate করবেন?";
+
+
+  if(!confirm(message))
+    return;
+
+
+  showLoader(
+    "Status update হচ্ছে..."
+  );
+
+
+  const result =
+    await api(
+      "toggleUser",
+      {userId}
+    );
+
+
+  hideLoader();
+
+
+  if(!result.success){
+
+    showToast(
+      result.message,
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  showToast(
+    "User status updated",
+    "success"
+  );
+
+
+  loadAdminData();
+
+}
+
+
+/* ============================================================
+   CREATE SERVICE
+============================================================ */
+
+async function createService(e){
+
+  e.preventDefault();
+
+  const name =
+    $("serviceName").value.trim();
+
+  const icon =
+    $("serviceIcon").value.trim();
+
+  const description =
+    $("serviceDescription").value.trim();
+
+  const url =
+    $("serviceUrl").value.trim();
+
+
+  /* Required field check */
+
+  if(!name){
+
+    showToast(
+      "Service Name দিন।",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  if(!url){
+
+    showToast(
+      "Service URL দিন।",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  /* URL must be HTTP / HTTPS */
+
+  if(!/^https?:\/\/.+/i.test(url)){
+
+    showToast(
+      "সঠিক HTTP/HTTPS URL দিন।",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  const data = {
+
+    name: name,
+
+    icon: icon || "📄",
+
+    description: description,
+
+    url: url
+
+  };
+
+
+  try{
+
+    showLoader(
+      "Service save হচ্ছে..."
+    );
+
+
+    const result =
+      await api(
+        "addService",
+        data
+      );
+
+
+    hideLoader();
+
+
+    if(!result.success){
+
+      showToast(
+        result.message ||
+        "Service save হয়নি।",
+        "error"
+      );
+
+      return;
+
+    }
+
+
+    /* Reset form */
+
+    $("serviceForm").reset();
+
+
+    /* Close modal */
+
+    closeModal(
+      "serviceModal"
+    );
+
+
+    /* Success message */
+
+    showToast(
+      "Service successfully added",
+      "success"
+    );
+
+
+    /* Immediately refresh admin services */
+
+    await loadAdminData();
+
+
+  }catch(error){
+
+    hideLoader();
+
+    console.error(
+      "Add Service Error:",
+      error
+    );
+
+    showToast(
+      error.message ||
+      "Service save হয়নি।",
+      "error"
+    );
+
+  }
+
+}
+
+
+/* ============================================================
+   DELETE SERVICE
+============================================================ */
+
+async function deleteService(
+  serviceId
+){
+
+  if(
+    !confirm(
+      "এই Service Delete করবেন?"
+    )
+  )
+    return;
+
+
+  showLoader(
+    "Service delete হচ্ছে..."
+  );
+
+
+  const result =
+    await api(
+      "deleteService",
+      {serviceId}
+    );
+
+
+  hideLoader();
+
+
+  if(!result.success){
+
+    showToast(
+      result.message,
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  showToast(
+    "Service deleted",
+    "success"
+  );
+
+
+  loadAdminData();
+
+}
+
+
+/* ============================================================
+   ASSIGN USER SERVICES
+============================================================ */
+
+function assignUser(
+  userId
+){
+
+  $("assignUserId")
+    .value =
+      userId;
+
+
+  const assignedIds =
+    allAssignments
+      .filter(
+        function(item){
+
+          return (
+            String(
+              item.UserID
+            ).toLowerCase() ===
+            userId.toLowerCase()
+            &&
+            String(
+              item.Status
+            ).toLowerCase() ===
+            "active"
+          );
+
+        }
+      )
+      .map(
+        function(item){
+
+          return String(
+            item.ServiceID
+          );
+
+        }
+      );
+
+
+  const box =
+    $("assignServicesList");
+
+
+  if(!allServices.length){
+
+    box.innerHTML =
+      `<div class="empty-box">
+        আগে Service তৈরি করুন।
+      </div>`;
+
+    openModal(
+      "assignModal"
+    );
+
+    return;
+
+  }
+
+
+  box.innerHTML =
+    allServices
+      .map(
+        function(service){
+
+          const checked =
+            assignedIds.includes(
+              String(
+                service.id
+              )
+            );
+
+
+          return `
+
+            <label style="
+              display:flex;
+              align-items:center;
+              gap:12px;
+              padding:13px;
+              margin-bottom:8px;
+              border:1px solid #e2e8f0;
+              border-radius:10px;
+              background:#f8fafc;
+            ">
+
+              <input
+                type="checkbox"
+                class="assign-check"
+                value="${escapeHTML(
+                  service.id
+                )}"
+                ${
+                  checked
+                    ? "checked"
+                    : ""
+                }
+                style="
+                  width:18px;
+                  height:18px;
+                "
+              >
+
+              <span>
+
+                <strong>
+                  ${escapeHTML(
+                    service.icon
+                  )}
+                  ${escapeHTML(
+                    service.name
+                  )}
+                </strong>
+
+                <small style="
+                  display:block;
+                  color:#64748b;
+                  margin-top:3px;
+                ">
+
+                  ${escapeHTML(
+                    service.description ||
+                    ""
+                  )}
+
+                </small>
+
+              </span>
+
+            </label>
+
+          `;
+
+        }
+      )
+      .join("");
+
+
+  openModal(
+    "assignModal"
+  );
+
+}
+
+
+/* ============================================================
+   SAVE ASSIGNMENTS
+============================================================ */
+
+async function saveAssignments(){
+
+  const userId =
+    $("assignUserId")
+    .value;
+
+
+  const serviceIds =
+    Array.from(
+      document.querySelectorAll(
+        ".assign-check:checked"
+      )
+    )
+    .map(
+      function(input){
+
+        return input.value;
+
+      }
+    );
+
+
+  showLoader(
+    "Service assignment হচ্ছে..."
+  );
+
+
+  const result =
+    await api(
+      "assignServices",
+      {
+        userId,
+        serviceIds
+      }
+    );
+
+
+  hideLoader();
+
+
+  if(!result.success){
+
+    showToast(
+      result.message,
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  closeModal(
+    "assignModal"
+  );
+
+
+  showToast(
+    "Service assignment saved",
+    "success"
+  );
+
+
+  loadAdminData();
+
+}
+
+
+/* ============================================================
+   ADMIN LOGOUT
+============================================================ */
+
+function adminLogout(){
+
+  currentAdmin =
+    null;
+
+  sessionStorage.removeItem(
+    "jos_admin"
+  );
+
+  location.reload();
+
+}
+
+
+/* ============================================================
+   RESTORE SESSION
+============================================================ */
+
+async function restoreSession(){
+
+  try{
+
+    const savedUser =
+      sessionStorage.getItem(
+        "jos_user"
+      );
+
+
+    const savedAdmin =
+      sessionStorage.getItem(
+        "jos_admin"
+      );
+
+
+    if(savedUser){
+
+      currentUser =
+        JSON.parse(
+          savedUser
+        );
+
+      showUserDashboard();
+
+      await refreshUserStatus();
+
+      return;
+
+    }
+
+
+    if(savedAdmin){
+
+      currentAdmin =
+        JSON.parse(
+          savedAdmin
+        );
+
+      showAdminPage();
+
+      await loadAdminData();
+
+      return;
+
+    }
+
+  }
+
+  catch(error){
+
+    console.error(error);
+
+    sessionStorage.clear();
+
+  }
+
+}
+
+
+/* ============================================================
+   MODAL
+============================================================ */
+
+function openModal(id){
+
+  const modal =
+    $(id);
+
+  if(modal){
+
+    modal.classList.add(
+      "active"
+    );
+
+  }
+
+}
+
+
+function closeModal(id){
+
+  const modal =
+    $(id);
+
+  if(modal){
+
+    modal.classList.remove(
+      "active"
+    );
+
+  }
+
+}
+
+
+/* ============================================================
+   HTML ESCAPE
+============================================================ */
+
+function escapeHTML(value){
+
+  return String(
+    value ?? ""
+  )
+  .replace(
+    /&/g,
+    "&amp;"
+  )
+  .replace(
+    /</g,
+    "&lt;"
+  )
+  .replace(
+    />/g,
+    "&gt;"
+  )
+  .replace(
+    /"/g,
+    "&quot;"
+  )
+  .replace(
+    /'/g,
+    "&#039;"
+  );
+
+}
+
+
+/* ============================================================
+   JS ESCAPE
+============================================================ */
+
+function escapeJS(value){
+
+  return String(
+    value ?? ""
+  )
+  .replace(
+    /\\/g,
+    "\\\\"
+  )
+  .replace(
+    /'/g,
+    "\\'"
+  )
+  .replace(
+    /"/g,
+    '\\"'
+  )
+  .replace(
+    /\r?\n/g,
+    "\\n"
+  );
+
+}
+
+
+/* ============================================================
+   COMMON ONLINE SERVICES
+============================================================ */
+
+const COMMON_SERVICE_PHONE =
+  "9907992247";
+
+const COMMON_SERVICE_WHATSAPP =
+  "919907992247";
+
+
+const COMMON_ONLINE_SERVICES = [
+
+  {
+    name:"UTI PAN Card Service",
+    description:"Apply, Correction, Download & PAN Status",
+    icon:"🪪",
+
+    links:[
+      {
+        title:"Apply PAN",
+        description:"New PAN Apply",
+        url:"https://eminencedigitech.com/members/login"
+      },
+      {
+        title:"Correction",
+        description:"PAN Correction",
+        url:"https://www.pan.utiitsl.com/PAN_ONLINE/addresschangeHome.action"
+      },
+      {
+        title:"Download",
+        description:"E-PAN Download",
+        url:"https://www.pan.utiitsl.com/PAN_ONLINE/ePANCardHome"
+      },
+      {
+        title:"PAN Status",
+        description:"Check PAN Status",
+        url:"https://www.trackpan.utiitsl.com/PANONLINE/forms/TrackPan/trackApp#forward"
+      },
+      {
+        title:"UTI Portal",
+        description:"Official Portal",
+        url:"https://www.pan.utiitsl.com/"
+      }
+    ]
+  },
+
+
+  {
+    name:"NSDL PAN Card Service",
+    description:"Apply, Correction, Download & PAN Status",
+    icon:"🪪",
+
+    links:[
+      {
+        title:"Apply PAN",
+        description:"New PAN Apply",
+        url:"https://eminencedigitech.com/members/login"
+      },
+      {
+        title:"Correction",
+        description:"PAN Correction",
+        url:"https://onlineservices.proteantech.in/paam/endUserAddressUpdate.html"
+      },
+      {
+        title:"Download",
+        description:"E-PAN Download",
+        url:"https://onlineservices.proteantech.in/paam/requestAndDownloadEPAN.html"
+      },
+      {
+        title:"PAN Status",
+        description:"Check PAN Status",
+        url:"https://tin.tin.proteantech.in/pantan/StatusTrack.html"
+      },
+      {
+        title:"NSDL Portal",
+        description:"Official Portal",
+        url:"https://onlineservices.proteantech.in/paam/endUserRegisterContact.html"
+      }
+    ]
+  },
+
+
+  {
+    name:"Voter Card Service",
+    description:"New Voter ID, Search Name & Electoral Roll",
+    icon:"🗳️",
+
+    links:[
+      {
+        title:"New Voter ID",
+        description:"New Voter Registration",
+        url:"https://voters.eci.gov.in/form6"
+      },
+      {
+        title:"Search Name",
+        description:"Search Your Name",
+        url:"https://electoralsearch.eci.gov.in/uesfmempmlkypo"
+      },
+      {
+        title:"Electoral Roll",
+        description:"Download Electoral Roll",
+        url:"https://voters.eci.gov.in/download-eroll"
+      }
+    ]
+  },
+
+
+  {
+    name:"Aadhaar Service",
+    description:"Aadhaar Download, Update & Status",
+    icon:"🆔",
+
+    links:[
+      {
+        title:"My Aadhaar Login",
+        description:"Aadhaar Online Services",
+        url:"https://myaadhaar.uidai.gov.in/"
+      },
+      {
+        title:"Verify Mobile / Email",
+        description:"Verify Aadhaar Details",
+        url:"https://myaadhaar.uidai.gov.in/verify-email-mobile/en"
+      },
+      {
+        title:"Check Status",
+        description:"Aadhaar Status",
+        url:"https://myaadhaar.uidai.gov.in/CheckAadhaarStatus/en"
+      },
+      {
+        title:"Aadhaar DBT Link",
+        description:"Bank DBT Services",
+        url:"https://www.npci.org.in/"
+      },
+      {
+        title:"Aadhaar Login",
+        description:"Aadhaar Portal Login",
+        url:"https://myaadhaar.uidai.gov.in/login"
+      }
+    ]
+  },
+
+
+  {
+    name:"Ration Card Service",
+    description:"New Apply, Update, Download & Status",
+    icon:"🍚",
+
+    links:[
+      {
+        title:"Apply New",
+        description:"New Ration Card",
+        url:"https://wbpds.wb.gov.in/rcmsnew/AadhaarAuthenticationLogin/Index"
+      },
+      {
+        title:"Update Information",
+        description:"Ration Card Correction",
+        url:"https://wbpds.wb.gov.in/Benificiary_Deatils_Update_by_Aadhaar.aspx"
+      },
+      {
+        title:"Download",
+        description:"Ration Card Download",
+        url:"https://wbpds.wb.gov.in/E_Card_Download.aspx"
+      },
+      {
+        title:"Aadhaar Link",
+        description:"Ration Aadhaar Link",
+        url:"https://wbpds.wb.gov.in/Ekyc_otp.aspx"
+      },
+      {
+        title:"Status Check",
+        description:"Application Status",
+        url:"https://wbpds.wb.gov.in/CheckApplicationStatus.aspx"
+      }
+    ]
+  },
+
+
+  {
+    name:"Train Ticket Booking",
+    description:"IRCTC, PNR & Agent Interface",
+    icon:"🚆",
+
+    links:[
+      {
+        title:"IRCTC",
+        description:"Train Booking",
+        url:"https://www.irctc.co.in/"
+      },
+      {
+        title:"PNR Status",
+        description:"Check PNR Status",
+        url:"https://indianrail.gov.in/enquiry/PNR/PnrEnquiry.html"
+      },
+      {
+        title:"IRCTC Agent",
+        description:"Agent Interface",
+        url:"https://www.operations.irctc.co.in/AgentInterface/mainpage.jsf"
+      }
+    ]
+  },
+
+
+  {
+    name:"Bus Ticket Booking",
+    description:"Online & Intercity Bus Booking",
+    icon:"🚌",
+
+    links:[
+      {
+        title:"RedBus",
+        description:"Online Bus Booking",
+        url:"https://www.redbus.in/"
+      },
+      {
+        title:"State Transport",
+        description:"West Bengal Transport",
+        url:"https://www.wbtransport.gov.in/"
+      }
+    ]
+  },
+
+
+  {
+    name:"JOB CARD",
+    description:"Job Card Search & Website",
+    icon:"💼",
+
+    links:[
+      {
+        title:"Job Card Search",
+        description:"Search Job Card",
+        url:"https://mnregaweb2.dord.gov.in/netnrega/writereaddata/state_out/jobcardreg_3216026008_eng.html"
+      },
+      {
+        title:"Job Card Website",
+        description:"MGNREGA Official Website",
+        url:"https://nrega.dord.gov.in/MGNREGA_new/Nrega_home.aspx"
+      }
+    ]
+  },
+
+
+  {
+    name:"DTH Recharge",
+    description:"Tata Play & Dish TV Recharge",
+    icon:"📺",
+
+    links:[
+      {
+        title:"Tata Play",
+        description:"DTH Recharge",
+        url:"https://www.tataplay.com/"
+      },
+      {
+        title:"Dish TV",
+        description:"DTH Recharge",
+        url:"https://www.dishtv.in/"
+      }
+    ]
+  },
+
+
+  {
+    name:"Electricity Bill Pay",
+    description:"WBSEDCL Bill Payment & Services",
+    icon:"💡",
+
+    links:[
+      {
+        title:"WBSEDCL",
+        description:"Electricity Services",
+        url:"https://www.wbsedcl.in/"
+      },
+      {
+        title:"Bill Pay",
+        description:"Online Electricity Bill",
+        url:"https://portal.wbsedcl.in/onlinepay/OnlineBillPay.jsp"
+      },
+      {
+        title:"Consumer Login",
+        description:"Consumer Account",
+        url:"https://portal.wbsedcl.in/ConsumerLogin/Consumer_Login.jsp"
+      },
+      {
+        title:"Payment Receipt",
+        description:"Download Receipt",
+        url:"https://portal.wbsedcl.in/webdynpro/resources/wbsedcl/wbpaymentreceipt/ViewPaymentReceipt"
+      },
+      {
+        title:"No Dues Certificate",
+        description:"Electricity No Dues",
+        url:"https://portal.wbsedcl.in/irj/go/km/docs/bills/IFRAME/NoDuesCertificate.html"
+      }
+    ]
+  },
+
+
+  {
+    name:"Loan Payment / EMI",
+    description:"Bank Loan & EMI Payment",
+    icon:"🏦",
+
+    links:[
+      {
+        title:"HDFC Bank",
+        description:"EMI / Bank Services",
+        url:"https://www.hdfcbank.com/"
+      },
+      {
+        title:"SBI Loan Pay",
+        description:"SBI Online Services",
+        url:"https://www.onlinesbi.com/"
+      }
+    ]
+  },
+
+
+  {
+    name:"Land Records",
+    description:"Khatian, Plot & Land Information",
+    icon:"🌍",
+
+    links:[
+      {
+        title:"Banglarbhumi",
+        description:"West Bengal Land Records",
+        url:"https://banglarbhumi.gov.in/"
+      }
+    ]
+  },
+
+
+  {
+    name:"Caste Certificate",
+    description:"SC / ST / OBC Apply & Download",
+    icon:"📜",
+
+    links:[
+      {
+        title:"OBC Apply",
+        description:"OBC Certificate Apply",
+        url:"https://castcertificatewb.gov.in/application_revalidate"
+      },
+      {
+        title:"SC / ST Apply",
+        description:"SC/ST Certificate Apply",
+        url:"https://castcertificatewb.gov.in/application"
+      },
+      {
+        title:"SC / ST Search",
+        description:"Search Application",
+        url:"https://castcertificatewb.gov.in/searchapplication/viewcertificatedetails"
+      },
+      {
+        title:"OBC Search",
+        description:"Search Application",
+        url:"https://castcertificatewb.gov.in/searchapplication/viewcertificatedetails"
+      },
+      {
+        title:"SC / ST Download",
+        description:"Download Certificate",
+        url:"https://castcertificatewb.gov.in/downlaodsigncertificate"
+      },
+      {
+        title:"OBC Download",
+        description:"Download Certificate",
+        url:"https://castcertificatewb.gov.in/downlaod_signcertificate"
+      },
+      {
+        title:"Caste Portal",
+        description:"Official Portal",
+        url:"https://castcertificatewb.gov.in/"
+      }
+    ]
+  },
+
+
+  {
+    name:"Online Work Services",
+    description:"Freelance & Online Document Services",
+    icon:"💻",
+
+    links:[
+      {
+        title:"Upwork",
+        description:"Freelance Work",
+        url:"https://www.upwork.com/"
+      },
+      {
+        title:"Jana Online Service",
+        description:"Online Form & Document Help",
+        url:"https://www.janaonlineservice.in/"
+      }
+    ]
+  },
+
+
+  {
+    name:"Government Schemes",
+    description:"Government Scheme Online Services",
+    icon:"🏛️",
+
+    links:[
+      {
+        title:"Anandadhara / Scheme Portal",
+        description:"West Bengal Government",
+        url:"https://socialsecurity.wb.gov.in/"
+      },
+      {
+        title:"Yuba Sathi",
+        description:"Banglar Yuba Sathi",
+        url:"https://yubasathi.wb.gov.in/"
+      },
+      {
+        title:"Ayushman Card",
+        description:"Ayushman Bharat",
+        url:"https://beneficiary.nha.gov.in/"
+      }
+    ]
+  }
+
+];
+
+
+/* ============================================================
+   COMMON SERVICE INIT
+============================================================ */
+
+function initCommonOnlineServices(){
+
+  const search =
+    $("commonServiceSearch");
+
+  const close =
+    $("commonModalClose");
+
+  const modal =
+    $("commonServiceModal");
+
+
+  if(!search ||
+     !close ||
+     !modal)
+    return;
+
+
+  renderCommonOnlineServices(
+    COMMON_ONLINE_SERVICES
+  );
+
+
+  search.addEventListener(
+    "input",
+    function(){
+
+      const value =
+        this.value
+          .trim()
+          .toLowerCase();
+
+
+      const filtered =
+        COMMON_ONLINE_SERVICES
+          .filter(
+            function(service){
+
+              return (
+
+                service.name
+                  .toLowerCase()
+                  .includes(value)
+
+                ||
+
+                service.description
+                  .toLowerCase()
+                  .includes(value)
+
+              );
+
+            }
+          );
+
+
+      renderCommonOnlineServices(
+        filtered
+      );
+
+    }
+  );
+
+
+  close.addEventListener(
+    "click",
+    closeCommonOnlineService
+  );
+
+
+  modal.addEventListener(
+    "click",
+    function(event){
+
+      if(
+        event.target ===
+        modal
+      ){
+
+        closeCommonOnlineService();
+
+      }
+
+    }
+  );
+
+
+  document.addEventListener(
+    "keydown",
+    function(event){
+
+      if(
+        event.key === "Escape" &&
+        modal.classList.contains("active")
+      ){
+
+        closeCommonOnlineService();
+
+      }
+
+    }
+  );
+
+}
+
+
+/* ============================================================
+   RENDER COMMON SERVICES
+============================================================ */
+
+function renderCommonOnlineServices(
+  list
+){
+
+  const grid =
+    $("commonServiceGrid");
+
+  const count =
+    $("commonServiceCount");
+
+  const noResult =
+    $("commonServiceNoResult");
+
+
+  if(!grid)
+    return;
+
+
+  grid.innerHTML = "";
+
+
+  count.textContent =
+    list.length +
+    " Services Available";
+
+
+  if(!list.length){
+
+    noResult.style.display =
+      "block";
+
+    return;
+
+  }
+
+
+  noResult.style.display =
+    "none";
+
+
+  list.forEach(
+    function(service){
+
+      const card =
+        document.createElement(
+          "article"
+        );
+
+
+      card.className =
+        "common-service-card";
+
+
+      const top =
+        document.createElement(
+          "div"
+        );
+
+
+      const icon =
+        document.createElement(
+          "div"
+        );
+
+      icon.className =
+        "common-service-icon";
+
+      icon.textContent =
+        service.icon;
+
+
+      const title =
+        document.createElement(
+          "h3"
+        );
+
+      title.textContent =
+        service.name;
+
+
+      const description =
+        document.createElement(
+          "p"
+        );
+
+      description.textContent =
+        service.description;
+
+
+      top.appendChild(icon);
+      top.appendChild(title);
+      top.appendChild(description);
+
+
+      const footer =
+        document.createElement(
+          "div"
+        );
+
+      footer.className =
+        "common-service-card-footer";
+
+
+      const view =
+        document.createElement(
+          "span"
+        );
+
+      view.textContent =
+        "View Options";
+
+
+      const arrow =
+        document.createElement(
+          "span"
+        );
+
+      arrow.className =
+        "common-service-arrow";
+
+      arrow.textContent =
+        "→";
+
+
+      footer.appendChild(view);
+      footer.appendChild(arrow);
+
+
+      card.appendChild(top);
+      card.appendChild(footer);
+
+
+      card.addEventListener(
+        "click",
+        function(){
+
+          openCommonOnlineService(
+            service
+          );
+
+        }
+      );
+
+
+      grid.appendChild(card);
+
+    }
+  );
+
+}
+
+
+/* ============================================================
+   OPEN COMMON SERVICE
+============================================================ */
+
+function openCommonOnlineService(
+  service
+){
+
+  $("commonModalIcon")
+    .textContent =
+      service.icon;
+
+  $("commonModalTitle")
+    .textContent =
+      service.name;
+
+  $("commonModalDescription")
+    .textContent =
+      service.description;
+
+
+  const links =
+    $("commonServiceLinks");
+
+
+  links.innerHTML =
+    "";
+
+
+  service.links.forEach(
+    function(link){
+
+      const a =
+        document.createElement(
+          "a"
+        );
+
+
+      a.className =
+        "common-service-link";
+
+
+      a.href =
+        link.url;
+
+      a.target =
+        "_blank";
+
+      a.rel =
+        "noopener noreferrer";
+
+
+      const strong =
+        document.createElement(
+          "strong"
+        );
+
+      strong.textContent =
+        link.title;
+
+
+      const span =
+        document.createElement(
+          "span"
+        );
+
+      span.textContent =
+        link.description;
+
+
+      a.appendChild(strong);
+      a.appendChild(span);
+
+      links.appendChild(a);
+
+    }
+  );
+
+
+  $("commonCallButton")
+    .href =
+      "tel:" +
+      COMMON_SERVICE_PHONE;
+
+
+  const message =
+    "Hello, I want help regarding " +
+    service.name;
+
+
+  $("commonWhatsappButton")
+    .href =
+      "https://wa.me/" +
+      COMMON_SERVICE_WHATSAPP +
+      "?text=" +
+      encodeURIComponent(
+        message
+      );
+
+
+  $("commonServiceModal")
+    .classList.add(
+      "active"
+    );
+
+
+  document.body.style.overflow =
+    "hidden";
+
+}
+
+
+/* ============================================================
+   CLOSE COMMON SERVICE
+============================================================ */
+
+function closeCommonOnlineService(){
+
+  const modal =
+    $("commonServiceModal");
+
+
+  modal.classList.remove(
+    "active"
+  );
+
+
+  if(
+    !document.querySelector(
+      ".modal.active"
+    )
+  ){
+
+    document.body.style.overflow =
+      "";
+
+  }
+
+}
+
+
+
+
+/* ============================================================
+  WAP function
+============================================================ */
+
+
+
+if ("serviceWorker" in navigator) {
+
+  window.addEventListener(
+    "load",
+    function () {
+
+      navigator.serviceWorker
+        .register("./sw.js")
+        .then(function (registration) {
+
+          console.log(
+            "PWA Service Worker registered:",
+            registration.scope
+          );
+
+        })
+        .catch(function (error) {
+
+          console.error(
+            "PWA Service Worker registration failed:",
+            error
+          );
+
+        });
+
+    }
+  );
+
+}
+
+/* =====================================================
+   PROFESSIONAL LOGIN UI
+   Does NOT change API / Admin / User Dashboard
+===================================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const userBtn = document.getElementById("userLoginBtn");
+    const adminBtn = document.getElementById("adminLoginBtn");
+    const loginType = document.getElementById("loginType");
+
+    const loginId = document.getElementById("loginId");
+    const loginPassword = document.getElementById("loginPassword");
+
+    const togglePassword =
+        document.getElementById("togglePassword");
+
+    const openRegistration =
+        document.getElementById("openRegistration");
+
+    const backToLogin =
+        document.getElementById("backToLogin");
+
+    const loginCard =
+        document.getElementById("loginCard");
+
+    const registerCard =
+        document.getElementById("registerCard");
+
+
+    /* =================================================
+       USER / ADMIN SWITCH
+    ================================================= */
+
+    function setLoginType(type) {
+
+        if (!loginType) return;
+
+        loginType.value = type;
+
+        if (userBtn) {
+            userBtn.classList.toggle(
+                "active",
+                type === "user"
+            );
+        }
+
+        if (adminBtn) {
+            adminBtn.classList.toggle(
+                "active",
+                type === "admin"
+            );
+        }
+
+
+        /* Change placeholder */
+
+        if (loginId) {
+
+            if (type === "admin") {
+
+                loginId.placeholder =
+                    "Admin ID / Username";
+
+            } else {
+
+                loginId.placeholder =
+                    "JOS10001 / Mobile Number";
+
+            }
+
+        }
+
+    }
+
+
+    if (userBtn) {
+
+        userBtn.addEventListener("click", function () {
+
+            setLoginType("user");
+
+        });
+
+    }
+
+
+    if (adminBtn) {
+
+        adminBtn.addEventListener("click", function () {
+
+            setLoginType("admin");
+
+        });
+
+    }
+
+
+    /* =================================================
+       PASSWORD SHOW / HIDE
+    ================================================= */
+
+    if (togglePassword) {
+
+        togglePassword.addEventListener(
+            "click",
+            function () {
+
+                if (!loginPassword) return;
+
+                const icon =
+                    togglePassword.querySelector("i");
+
+                if (loginPassword.type === "password") {
+
+                    loginPassword.type = "text";
+
+                    if (icon) {
+
+                        icon.classList.remove(
+                            "fa-eye"
+                        );
+
+                        icon.classList.add(
+                            "fa-eye-slash"
+                        );
+
+                    }
+
+                } else {
+
+                    loginPassword.type = "password";
+
+                    if (icon) {
+
+                        icon.classList.remove(
+                            "fa-eye-slash"
+                        );
+
+                        icon.classList.add(
+                            "fa-eye"
+                        );
+
+                    }
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /* =================================================
+       ALL PASSWORD TOGGLE BUTTONS
+    ================================================= */
+
+    document
+        .querySelectorAll(
+            ".password-toggle[data-target]"
+        )
+        .forEach(function (button) {
+
+            button.addEventListener(
+                "click",
+                function () {
+
+                    const targetId =
+                        button.getAttribute(
+                            "data-target"
+                        );
+
+                    const input =
+                        document.getElementById(
+                            targetId
+                        );
+
+                    const icon =
+                        button.querySelector("i");
+
+                    if (!input) return;
+
+
+                    if (input.type === "password") {
+
+                        input.type = "text";
+
+                        if (icon) {
+
+                            icon.classList.remove(
+                                "fa-eye"
+                            );
+
+                            icon.classList.add(
+                                "fa-eye-slash"
+                            );
+
+                        }
+
+                    } else {
+
+                        input.type = "password";
+
+                        if (icon) {
+
+                            icon.classList.remove(
+                                "fa-eye-slash"
+                            );
+
+                            icon.classList.add(
+                                "fa-eye"
+                            );
+
+                        }
+
+                    }
+
+                }
+            );
+
+        });
+
+
+    /* =================================================
+       OPEN REGISTRATION
+    ================================================= */
+
+    if (openRegistration) {
+
+        openRegistration.addEventListener(
+            "click",
+            function () {
+
+                if (loginCard) {
+
+                    loginCard.style.display = "none";
+
+                }
+
+                if (registerCard) {
+
+                    registerCard.style.display = "block";
+
+                }
+
+                const title =
+                    document.getElementById(
+                        "loginTitle"
+                    );
+
+                const subtitle =
+                    document.getElementById(
+                        "loginSubtitle"
+                    );
+
+                if (title) {
+
+                    title.textContent =
+                        "Create Account";
+
+                }
+
+                if (subtitle) {
+
+                    subtitle.textContent =
+                        "Jana Online Service-এ Registration করুন";
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /* =================================================
+       BACK TO LOGIN
+    ================================================= */
+
+    if (backToLogin) {
+
+        backToLogin.addEventListener(
+            "click",
+            function () {
+
+                if (registerCard) {
+
+                    registerCard.style.display =
+                        "none";
+
+                }
+
+                if (loginCard) {
+
+                    loginCard.style.display =
+                        "block";
+
+                }
+
+                const title =
+                    document.getElementById(
+                        "loginTitle"
+                    );
+
+                const subtitle =
+                    document.getElementById(
+                        "loginSubtitle"
+                    );
+
+                if (title) {
+
+                    title.textContent =
+                        "Welcome Back";
+
+                }
+
+                if (subtitle) {
+
+                    subtitle.textContent =
+                        "আপনার Account-এ Login করুন";
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /* =================================================
+       REMEMBER LOGIN
+    ================================================= */
+
+    const remember =
+        document.getElementById(
+            "rememberLogin"
+        );
+
+
+    /*
+       এখানে password save করা হচ্ছে না।
+       শুধু Login ID save করা হবে।
+    */
+
+    if (remember && loginId) {
+
+        const savedLogin =
+            localStorage.getItem(
+                "jos_saved_login"
+            );
+
+        if (savedLogin) {
+
+            loginId.value = savedLogin;
+
+            remember.checked = true;
+
+        }
+
+
+        loginId.addEventListener(
+            "input",
+            function () {
+
+                if (remember.checked) {
+
+                    localStorage.setItem(
+                        "jos_saved_login",
+                        loginId.value.trim()
+                    );
+
+                }
+
+            }
+        );
+
+
+        remember.addEventListener(
+            "change",
+            function () {
+
+                if (remember.checked) {
+
+                    if (loginId.value.trim()) {
+
+                        localStorage.setItem(
+                            "jos_saved_login",
+                            loginId.value.trim()
+                        );
+
+                    }
+
+                } else {
+
+                    localStorage.removeItem(
+                        "jos_saved_login"
+                    );
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /* Default */
+
+    setLoginType("user");
+
+});
+
+
+
+/* =========================================
+   AUTOMATIC POPUP
+   10 SECOND DELAY
+   10 SECOND DISPLAY
+========================================= */
+
+const popup = document.getElementById("josPopup");
+
+
+/* OPEN POPUP AFTER 10 SECONDS */
+
+window.addEventListener("load", function () {
+
+    setTimeout(function () {
+
+        popup.classList.add("active");
+
+        document.body.style.overflow = "hidden";
+
+
+        /* CLOSE AFTER 10 SECONDS */
+
+        setTimeout(function () {
+
+            popup.classList.remove("active");
+
+            document.body.style.overflow = "";
+
+        }, 5000);
+
+
+    }, 2000);
+
+});
+
+
+
+</script>
+
+
+</body>
+</html>
