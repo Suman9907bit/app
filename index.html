@@ -392,7 +392,6 @@ button{
 }
 
 
-
 .user-banner{
   min-height:auto;
   padding:45px 30px;
@@ -401,7 +400,7 @@ button{
   align-items:center;
   background:
     linear-gradient(90deg,rgba(2,47,75,.60),rgba(2,47,75,.02)),
-    url("https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlH7rxZO2N9clhbi9PBaTTEbg-V9U5viqbMpeIwE0Wd6obzEM5ThJ35WAemaJmQv6o9Lh21K9A20DM6iUzDWJaHMixLN-NWdRJGgw5nyWPTVHCU5OXPrqDSLdLywlSP4w4hEUar7ue0doNY=s680-w680-h510-rw")
+    url("https://lh3.googleusercontent.com/gps-cs-s/AHRPTWk3jL7j43IsWUoBVf_bLfw955hvP00lkqADA_9gxahUnXWYkLwMIer0jXHckhbPwD7M53ulqUj2nsVyGYrhV3bWTCsQ5c529LfBLcCDUMnhcZl4u4A4u4PJ3zcIqCa3fZhYhYvEqkz8E00D=s680-w680-h510-rw")
     center/cover;
 }
 
@@ -420,7 +419,6 @@ button{
   font-size:17px;
   opacity:.95;
 }
-
 
 
 /* =====================================================
@@ -1529,7 +1527,7 @@ th{
 .shape-1 {
     width: 280px;
     height: 280px;
-    background: #0097a7);
+    background: #0097a7;
     top: -100px;
     left: -80px;
 }
@@ -1537,7 +1535,7 @@ th{
 .shape-2 {
     width: 350px;
     height: 350px;
-    background:#0097a7);
+    background:#0097a7;
     bottom: -160px;
     right: -100px;
 }
@@ -1545,7 +1543,7 @@ th{
 .shape-3 {
     width: 150px;
     height: 150px;
-    background: #0097a7);
+    background: #0097a7;
     top: 35%;
     right: 15%;
 }
@@ -1599,8 +1597,8 @@ th{
     background:
         linear-gradient(
             145deg,
-            #075985 0%,
-            #0369a1 45%,
+            #0097a7 0%,
+            #1498a7 45%,
             #0284c7 100%
         );
 
@@ -1617,7 +1615,7 @@ th{
 
     border-radius: 50%;
 
-    background: rgba(255,255,255,.06);
+    background: rgba(255,255,255,.09);
 
     top: -170px;
     right: -180px;
@@ -1634,7 +1632,7 @@ th{
 
     border-radius: 50%;
 
-    background: rgba(255,255,255,.05);
+    background: rgba(255,255,255,.100);
 
     bottom: -130px;
     left: -100px;
@@ -2534,6 +2532,8 @@ th{
     }
 
 
+    
+
     .login-card-area {
         padding: 28px 20px 25px;
 
@@ -2555,6 +2555,26 @@ th{
         max-width: 100%;
     }
 
+
+
+    
+}
+
+
+.iframe-feature{
+    cursor:pointer;
+    transition:.25s ease;
+    border-radius:14px;
+    padding:8px;
+}
+
+.iframe-feature:hover{
+    background:rgba(255,255,255,.10);
+    transform:translateX(4px);
+}
+
+.iframe-feature:active{
+    transform:scale(.98);
 }
 
 
@@ -3403,6 +3423,313 @@ body{
     }
 }
 
+
+/* ===============================
+   JOS PROFESSIONAL FOOTER
+================================ */
+
+.jos-footer{
+  background:linear-gradient(
+    135deg,
+    #042f49,
+    #075985,
+    #064e3b
+  );
+
+  color:#fff;
+  margin-top:40px;
+  overflow:hidden;
+}
+
+
+/* Main Footer */
+
+.jos-footer-container{
+  max-width:1200px;
+  width:100%;
+  margin:auto;
+
+  padding:50px 25px 35px;
+
+  display:grid;
+  grid-template-columns:
+    2fr
+    1fr
+    1fr
+    1.5fr;
+
+  gap:40px;
+}
+
+
+/* Footer Box */
+
+.jos-footer-box{
+  min-width:0;
+}
+
+
+/* Logo */
+
+.jos-footer-logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:18px;
+}
+
+.jos-footer-logo-icon{
+  width:52px;
+  height:52px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #22d3ee,
+      #14b8a6
+    );
+
+  color:#fff;
+
+  font-size:15px;
+  font-weight:900;
+
+  box-shadow:
+    0 8px 25px
+    rgba(34,211,238,.25);
+}
+
+.jos-footer-logo h3{
+  margin:0;
+  font-size:19px;
+  font-weight:800;
+}
+
+.jos-footer-logo span{
+  display:block;
+  margin-top:3px;
+
+  font-size:12px;
+  color:#a5f3fc;
+}
+
+
+/* Description */
+
+.jos-footer-box p{
+  color:rgba(255,255,255,.78);
+
+  font-size:14px;
+  line-height:1.7;
+
+  margin:0 0 10px;
+}
+
+
+/* Heading */
+
+.jos-footer-box h4{
+  font-size:18px;
+
+  margin:0 0 18px;
+
+  padding-bottom:9px;
+
+  position:relative;
+}
+
+
+/* Heading Underline */
+
+.jos-footer-box h4::after{
+  content:"";
+
+  position:absolute;
+
+  left:0;
+  bottom:0;
+
+  width:45px;
+  height:3px;
+
+  border-radius:10px;
+
+  background:#22d3ee;
+}
+
+
+/* Footer Links */
+
+.jos-footer-box a{
+  display:block;
+
+  color:rgba(255,255,255,.78);
+
+  text-decoration:none;
+
+  font-size:14px;
+
+  margin-bottom:11px;
+
+  transition:.25s ease;
+}
+
+.jos-footer-box a:hover{
+  color:#67e8f9;
+  transform:translateX(4px);
+}
+
+
+/* Social Buttons */
+
+.jos-footer-social{
+  display:flex;
+  gap:9px;
+
+  margin-top:18px;
+}
+
+.jos-footer-social a{
+  width:38px;
+  height:38px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:10px;
+
+  background:
+    rgba(255,255,255,.10);
+
+  border:
+    1px solid
+    rgba(255,255,255,.15);
+
+  color:#fff !important;
+
+  font-size:11px;
+  font-weight:800;
+
+  margin:0;
+
+  transform:none !important;
+
+  transition:.25s ease;
+}
+
+.jos-footer-social a:hover{
+  background:
+    rgba(34,211,238,.25);
+
+  border-color:#22d3ee;
+
+  transform:translateY(-3px) !important;
+}
+
+
+/* Bottom Footer */
+
+.jos-footer-bottom{
+  max-width:1200px;
+  margin:auto;
+
+  border-top:
+    1px solid
+    rgba(255,255,255,.15);
+
+  padding:18px 25px;
+
+  display:flex;
+
+  justify-content:space-between;
+  align-items:center;
+
+  gap:15px;
+
+  color:
+    rgba(255,255,255,.65);
+
+  font-size:12px;
+}
+
+.jos-footer-bottom strong{
+  color:#67e8f9;
+}
+
+
+/* =================================
+   TABLET
+================================= */
+
+@media(max-width:768px){
+
+  .jos-footer-container{
+    grid-template-columns:1fr 1fr;
+
+    gap:30px 20px;
+
+    padding:
+      40px 20px 25px;
+  }
+
+  .jos-footer-box:first-child{
+    grid-column:1 / -1;
+  }
+
+  .jos-footer-bottom{
+    flex-direction:column;
+
+    text-align:center;
+
+    padding:18px 15px;
+  }
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media(max-width:480px){
+
+  .jos-footer-container{
+    grid-template-columns:1fr;
+
+    padding:
+      35px 18px 25px;
+  }
+
+  .jos-footer-box:first-child{
+    grid-column:auto;
+  }
+
+  .jos-footer-logo h3{
+    font-size:17px;
+  }
+
+  .jos-footer-box h4{
+    font-size:17px;
+  }
+
+  .jos-footer-bottom{
+    font-size:11px;
+
+    line-height:1.7;
+  }
+
+}
+
+
+
+
+
 </style>
 </head>
 
@@ -3433,7 +3760,7 @@ body{
 
       <div class="brand-logo-box">
         <div class="brand-logo">
-          <i class="fa-solid fa-building"><image src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlWiDnUltsVruynsH_F_cnk3-FLDHJ7tLsa67FNFhG18Q2fkCwnD_m9bq2uQWqSl13PC6W-1B4vtEVY_RICwtHFvKeNaDWrXdgjDtbo4xWB13yK4ffKOQR6XFgBPGuN2_53fMVq1lfxAWgj=s680-w680-h510-rw" style="height:50px;"></image></i>
+          <i class="fa-solid fa-building"><image src="https://lh3.googleusercontent.com/a-/ALV-UjU7cHPZFGO9gFXLALp74oNXb6GSIh5C79vtvmw7_MtTelJdO-Wq=w1425" class="brand-logo"></image></i>
         </div>
       </div>
 
@@ -3452,35 +3779,50 @@ body{
 
       <div class="brand-features">
 
-        <div class="brand-feature">
-          <div class="feature-icon">
-            <i class="fa-solid fa-shield-halved"><image src="https://i.pinimg.com/originals/74/21/58/7421588cce1c5faa05e21b5b498c2ada.gif" style="width:80%"></image></i>
-          </div>
-          <div>
-            <strong>Secure</strong>
-            <span>নিরাপদ Login System</span>
-          </div>
-        </div>
+        <div class="brand-feature iframe-feature"
+     data-url="https://suman9907bit.github.io/syber-information/"
+     data-title="Secure">
 
-        <div class="brand-feature">
-          <div class="feature-icon">
-            <i class="fa-solid fa-bolt"><image src="https://cdn.pixabay.com/animation/2023/06/13/15/13/15-13-39-266_512.gif" style="width:80%"></image></i>
-          </div>
-          <div>
-            <strong>Fast Service</strong>
-            <span>দ্রুত Online Service</span>
-          </div>
-        </div>
+    <div class="feature-icon">
+       <image src="https://cdn-icons-gif.flaticon.com/17489/17489726.gif" class="feature-icon">
+    </div>
 
-        <div class="brand-feature">
-          <div class="feature-icon">
-            <i class="fa-solid fa-headset"><image src="https://cdn.pixabay.com/animation/2023/06/13/15/13/15-13-36-234_512.gif" style="width:80%"></i>
-          </div>
-          <div>
-            <strong>Support</strong>
-            <span>Customer Support</span>
-          </div>
-        </div>
+    <div>
+        <strong>Syber Info</strong>
+        <span>সাইবার অপরাধের ধরন এবং সতর্কবার্তা</span>
+    </div>
+
+</div>
+
+        <div class="brand-feature iframe-feature"
+     data-url="https://suman9907bit.github.io/Improtentservice/"
+     data-title="Fast Service">
+
+    <div class="feature-icon">
+      <image src="https://cdn-icons-gif.flaticon.com/17644/17644504.gif" class="feature-icon"></image>   
+    </div>
+
+    <div>
+        <strong>Required Documents</strong>
+        <span> সার্ভিসে ক্লিক করে প্রয়োজনীয় ডকুমেন্টগুলো দেখুন।</span>
+    </div>
+
+</div>
+
+        <div class="brand-feature iframe-feature"
+     data-url="https://suman9907bit.github.io/Contact/"
+     data-title="Support">
+
+    <div class="feature-icon">
+         <image src="https://assets-v2.lottiefiles.com/a/baa8edb8-1163-11ee-983a-5b72761e7098/mBKGBEXnIX.gif" class="feature-icon"></image>
+    </div>
+
+    <div>
+        <strong>Technical Support</strong>
+        <span>Customer Support</span>
+    </div>
+
+</div>
 
       </div>
 
@@ -4079,6 +4421,7 @@ body{
     </div>
 
   </div>
+ 
  
 
   <!-- NOTICE -->
@@ -5312,7 +5655,88 @@ body{
 
 </div>
 
+<footer class="jos-footer">
 
+  <div class="jos-footer-container">
+
+    <!-- Brand -->
+    <div class="jos-footer-box">
+      <div class="jos-footer-logo">
+        <div class="jos-footer-logo-icon">JOS</div>
+
+        <div>
+          <h3>Jana Online Service</h3>
+          <span>Digital Service Platform</span>
+        </div>
+      </div>
+
+      <p>
+        সহজ, দ্রুত ও নির্ভরযোগ্য Online Digital Service-এর জন্য
+        Jana Online Service-এর সাথে থাকুন।
+      </p>
+    </div>
+
+
+    <!-- Services -->
+    <div class="jos-footer-box">
+      <h4>Our Services</h4>
+
+      <a href="#">Online Form Fill-up</a>
+      <a href="#">PAN Card</a>
+      <a href="#">Aadhaar Service</a>
+      <a href="#">Certificate Service</a>
+      <a href="#">Job & Scholarship</a>
+    </div>
+
+
+    <!-- Quick Links -->
+    <div class="jos-footer-box">
+      <h4>Quick Links</h4>
+
+      <a href="#">Home</a>
+      <a href="#">Services</a>
+      <a href="#">About Us</a>
+      <a href="#">Contact</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+
+
+    <!-- Contact -->
+    <div class="jos-footer-box">
+      <h4>Contact Us</h4>
+
+      <p>📍 Kakdwip, South 24 Parganas, West Bengal</p>
+
+      <p>
+        📧 janaonlineservice4@gmail.com
+      </p>
+
+      <div class="jos-footer-social">
+        <a href="#" aria-label="WhatsApp">WA</a>
+        <a href="#" aria-label="Facebook">FB</a>
+        <a href="#" aria-label="YouTube">YT</a>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- Bottom -->
+  <div class="jos-footer-bottom">
+
+    <div>
+      © 2026 <strong>Jana Online Service (JOS)</strong>.
+      All Rights Reserved.
+    </div>
+
+    <div>
+      Designed & Developed by <strong>Suman Jana</strong>
+    </div>
+
+  </div>
+
+</footer>
 
 <script>
 
@@ -7625,7 +8049,7 @@ const COMMON_ONLINE_SERVICES = [
       {
         title:"Apply PAN",
         description:"New PAN Apply",
-        url:"https://eminencedigitech.com/members/login"
+        url:"https://www.pan.utiitsl.com/newA.html"
       },
       {
         title:"Correction",
@@ -7660,7 +8084,7 @@ const COMMON_ONLINE_SERVICES = [
       {
         title:"Apply PAN",
         description:"New PAN Apply",
-        url:"https://eminencedigitech.com/members/login"
+        url:"https://onlineservices.proteantech.in/paam/endUserRegisterContact.html"
       },
       {
         title:"Correction",
@@ -8915,10 +9339,72 @@ window.addEventListener("load", function () {
 
             document.body.style.overflow = "";
 
-        }, 5000);
+        }, 0);
 
 
-    }, 2000);
+    }, 0);
+
+});
+
+
+
+
+
+
+/* ============================================================
+   BRAND FEATURE IFRAME
+   SECURE / FAST SERVICE / SUPPORT
+============================================================ */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    document.querySelectorAll(".iframe-feature").forEach(function (feature) {
+
+        feature.addEventListener("click", function () {
+
+            const url = this.getAttribute("data-url");
+            const title = this.getAttribute("data-title") || "Jana Online Service";
+
+            /* URL না থাকলে কিছু করবে না */
+            if (!url) {
+                return;
+            }
+
+            /* Placeholder URL হলে */
+            if (
+                url === "FAST_SERVICE_PAGE_URL" ||
+                url === "SUPPORT_PAGE_URL"
+            ) {
+                alert("এই Option-এর URL এখনও দেওয়া হয়নি।");
+                return;
+            }
+
+            const viewer = document.getElementById("serviceViewer");
+            const frame = document.getElementById("serviceFrame");
+            const viewerTitle = document.getElementById("viewerTitle");
+
+            if (!viewer || !frame) {
+                console.error("Iframe Viewer পাওয়া যায়নি।");
+                return;
+            }
+
+            /* Title */
+            if (viewerTitle) {
+                viewerTitle.textContent = title;
+            }
+
+            /* Open URL */
+            frame.src = url;
+
+            /* Show full-screen viewer */
+            viewer.classList.add("active");
+
+            /* Background scroll বন্ধ */
+            document.body.style.overflow = "hidden";
+
+        });
+
+    });
 
 });
 
